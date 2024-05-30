@@ -1,0 +1,122 @@
+version: "3"
+
+volumes: 
+  db_vol: 
+  redis_vol: 
+  media_vol: 
+  static_vol:  
+
+networks: 
+  nginx_network:
+    driver: bridge
+  db_network:
+    driver: bridge
+  redis_network: 
+    driver: bridge
+  selenium_network:
+    driver: bridge
+
+services:
+  chrome:
+    image: selenium/node-chrome:4.7.2-20221219
+    shm_size: 4gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_SESSION_TIMEOUT = 86400
+      - SE_VNC_NO_PASSWORD=1
+      - SE_NODE_MAX_SESSIONS=5 
+      - SE_VNC_VIEW_ONLY=1   	
+
+
+  firefox:
+    image: selenium/node-firefox:4.7.2-20221219
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_SESSION_TIMEOUT=86400
+      - SE_VNC_NO_PASSWORD=1 
+      - SE_VNC_VIEW_ONLY=1  
+
+
+  selenium-hub:
+    image: selenium/hub:4.7.2-20221219
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+    networks:
+      - selenium_network
+
+  redis:
+    image: redis:latest
+    command: redis-server /etc/redis/redis.conf 
+    networks:
+      - redis_network
+    volumes:
+      - redis_vol:/data 
+      - ./compose/redis/redis.conf:/etc/redis/redis.conf 
+    ports:
+      - "6379:6379"
+    restart: always 
+  db:
+    image: mysql
+    env_file:  
+      - ./GamePlatform/.env 
+    networks:  
+      - db_network
+    volumes:
+      - db_vol:/var/lib/mysql:rw 
+      - ./compose/mysql/conf/my.cnf:/etc/mysql/my.cnf 
+      - ./compose/mysql/init:/docker-entrypoint-initdb.d/ 
+    ports:
+      - "3306:3306"
+    restart: always
+
+  web:
+    build: ./GamePlatform
+    expose:
+      - "8000"
+    volumes:
+      - ./GamePlatform:/var/www/html/GamePlatform 
+      - ./GamePlatform/staticfiles:/www/html/GamePlatform/static 
+      - ./GamePlatform/media:/www/html/GamePlatform/media 
+      - ./compose/uwsgi:/tmp 
+    networks:
+      - nginx_network
+      - db_network  
+      - redis_network 
+      - selenium_network
+    depends_on:
+      - db
+      - redis
+    restart: always
+    tty: true
+    stdin_open: true
+
+  nginx:
+    build: ./compose/nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    expose:
+      - "80"
+    volumes:
+      - ./compose/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf 
+      - ./compose/nginx/ssl:/usr/share/nginx/ssl 
+      - ./compose/nginx/log:/var/log/nginx 
+      - ./GamePlatform/staticfiles:/usr/share/nginx/html/static 
+      - ./GamePlatform/media:/usr/share/nginx/html/media 
+    networks:
+      - nginx_network
+    depends_on:
+      - web
+    restart: always

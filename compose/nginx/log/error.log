@@ -1,0 +1,1313 @@
+2024/01/14 11:46:42 [notice] 1#1: using the "epoll" event method
+2024/01/14 11:46:42 [notice] 1#1: nginx/1.25.3
+2024/01/14 11:46:42 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 11:46:42 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 11:46:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 11:46:42 [notice] 1#1: start worker processes
+2024/01/14 11:46:42 [notice] 1#1: start worker process 21
+2024/01/14 11:46:42 [notice] 1#1: start worker process 22
+2024/01/14 11:50:24 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.69.134.56, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.96.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/news/2/"
+2024/01/14 11:51:30 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 172.69.134.64, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.96.2:8000", host: "site.howard7777.store"
+2024/01/14 11:56:42 [error] 21#21: *5 connect() failed (111: Connection refused) while connecting to upstream, client: 179.43.178.234, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.96.2:8000", host: "35.194.232.40:80"
+2024/01/14 11:57:08 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 11:57:08 [notice] 21#21: gracefully shutting down
+2024/01/14 11:57:08 [notice] 21#21: exiting
+2024/01/14 11:57:08 [notice] 21#21: exit
+2024/01/14 11:57:08 [notice] 22#22: gracefully shutting down
+2024/01/14 11:57:08 [notice] 22#22: exiting
+2024/01/14 11:57:08 [notice] 22#22: exit
+2024/01/14 11:57:08 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/14 11:57:08 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 11:57:08 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 11:57:08 [notice] 1#1: exit
+2024/01/14 11:57:32 [notice] 1#1: using the "epoll" event method
+2024/01/14 11:57:32 [notice] 1#1: nginx/1.25.3
+2024/01/14 11:57:32 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 11:57:32 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 11:57:32 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 11:57:32 [notice] 1#1: start worker processes
+2024/01/14 11:57:32 [notice] 1#1: start worker process 19
+2024/01/14 11:57:32 [notice] 1#1: start worker process 20
+2024/01/14 11:58:21 [error] 19#19: *1 connect() failed (113: No route to host) while connecting to upstream, client: 172.71.158.34, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.96.2:8000", host: "site.howard7777.store"
+2024/01/14 12:01:32 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 12:01:32 [notice] 19#19: gracefully shutting down
+2024/01/14 12:01:32 [notice] 19#19: exiting
+2024/01/14 12:01:32 [notice] 19#19: exit
+2024/01/14 12:01:32 [notice] 20#20: gracefully shutting down
+2024/01/14 12:01:32 [notice] 20#20: exiting
+2024/01/14 12:01:32 [notice] 20#20: exit
+2024/01/14 12:01:32 [notice] 1#1: signal 17 (SIGCHLD) received from 19
+2024/01/14 12:01:32 [notice] 1#1: worker process 19 exited with code 0
+2024/01/14 12:01:32 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 12:01:32 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/14 12:01:32 [notice] 1#1: worker process 20 exited with code 0
+2024/01/14 12:01:32 [notice] 1#1: exit
+2024/01/14 12:01:52 [notice] 1#1: using the "epoll" event method
+2024/01/14 12:01:52 [notice] 1#1: nginx/1.25.3
+2024/01/14 12:01:52 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 12:01:52 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 12:01:52 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 12:01:52 [notice] 1#1: start worker processes
+2024/01/14 12:01:52 [notice] 1#1: start worker process 20
+2024/01/14 12:01:52 [notice] 1#1: start worker process 21
+2024/01/14 12:05:43 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 12:05:43 [notice] 20#20: gracefully shutting down
+2024/01/14 12:05:43 [notice] 20#20: exiting
+2024/01/14 12:05:43 [notice] 20#20: exit
+2024/01/14 12:05:43 [notice] 21#21: gracefully shutting down
+2024/01/14 12:05:43 [notice] 21#21: exiting
+2024/01/14 12:05:43 [notice] 21#21: exit
+2024/01/14 12:05:43 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/14 12:05:43 [notice] 1#1: worker process 20 exited with code 0
+2024/01/14 12:05:43 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 12:05:43 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 12:05:43 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 12:05:43 [notice] 1#1: exit
+2024/01/14 12:07:48 [notice] 1#1: using the "epoll" event method
+2024/01/14 12:07:48 [notice] 1#1: nginx/1.25.3
+2024/01/14 12:07:48 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 12:07:48 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 12:07:48 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 12:07:48 [notice] 1#1: start worker processes
+2024/01/14 12:07:48 [notice] 1#1: start worker process 20
+2024/01/14 12:07:48 [notice] 1#1: start worker process 21
+2024/01/14 12:08:28 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 12:08:28 [notice] 20#20: gracefully shutting down
+2024/01/14 12:08:28 [notice] 21#21: gracefully shutting down
+2024/01/14 12:08:28 [notice] 20#20: exiting
+2024/01/14 12:08:28 [notice] 21#21: exiting
+2024/01/14 12:08:28 [notice] 20#20: exit
+2024/01/14 12:08:28 [notice] 21#21: exit
+2024/01/14 12:08:28 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 12:08:28 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 12:08:28 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 12:08:28 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/14 12:08:28 [notice] 1#1: worker process 20 exited with code 0
+2024/01/14 12:08:28 [notice] 1#1: exit
+2024/01/14 12:08:35 [notice] 1#1: using the "epoll" event method
+2024/01/14 12:08:35 [notice] 1#1: nginx/1.25.3
+2024/01/14 12:08:35 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 12:08:35 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 12:08:35 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 12:08:35 [notice] 1#1: start worker processes
+2024/01/14 12:08:35 [notice] 1#1: start worker process 20
+2024/01/14 12:08:35 [notice] 1#1: start worker process 21
+2024/01/14 12:08:47 [error] 20#20: *1 open() "/usr/share/nginx/html/static/images/swamp.png" failed (2: No such file or directory), client: 94.102.61.10, server: 127.0.0.1, request: "GET /static/images/swamp.png HTTP/1.1", host: "35.194.232.40"
+2024/01/14 12:09:04 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 12:09:04 [notice] 20#20: gracefully shutting down
+2024/01/14 12:09:04 [notice] 20#20: exiting
+2024/01/14 12:09:04 [notice] 20#20: exit
+2024/01/14 12:09:04 [notice] 21#21: gracefully shutting down
+2024/01/14 12:09:04 [notice] 21#21: exiting
+2024/01/14 12:09:04 [notice] 21#21: exit
+2024/01/14 12:09:04 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/14 12:09:04 [notice] 1#1: worker process 20 exited with code 0
+2024/01/14 12:09:04 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 12:09:04 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 12:09:04 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 12:09:04 [notice] 1#1: exit
+2024/01/14 12:09:53 [notice] 1#1: using the "epoll" event method
+2024/01/14 12:09:53 [notice] 1#1: nginx/1.25.3
+2024/01/14 12:09:53 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 12:09:53 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 12:09:53 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 12:09:53 [notice] 1#1: start worker processes
+2024/01/14 12:09:53 [notice] 1#1: start worker process 20
+2024/01/14 12:09:53 [notice] 1#1: start worker process 21
+2024/01/14 12:10:25 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 12:10:25 [notice] 21#21: gracefully shutting down
+2024/01/14 12:10:25 [notice] 20#20: gracefully shutting down
+2024/01/14 12:10:25 [notice] 21#21: exiting
+2024/01/14 12:10:25 [notice] 20#20: exiting
+2024/01/14 12:10:25 [notice] 21#21: exit
+2024/01/14 12:10:25 [notice] 20#20: exit
+2024/01/14 12:10:25 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/14 12:10:25 [notice] 1#1: worker process 20 exited with code 0
+2024/01/14 12:10:25 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 12:10:25 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 12:10:25 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 12:10:25 [notice] 1#1: exit
+2024/01/14 12:27:07 [notice] 1#1: using the "epoll" event method
+2024/01/14 12:27:07 [notice] 1#1: nginx/1.25.3
+2024/01/14 12:27:07 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 12:27:07 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 12:27:07 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 12:27:07 [notice] 1#1: start worker processes
+2024/01/14 12:27:07 [notice] 1#1: start worker process 21
+2024/01/14 12:27:07 [notice] 1#1: start worker process 22
+2024/01/14 12:27:14 [error] 22#22: *1 connect() failed (113: No route to host) while connecting to upstream, client: 192.155.88.231, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.176.2:8000", host: "35.194.232.40"
+2024/01/14 12:27:25 [error] 21#21: *3 connect() failed (113: No route to host) while connecting to upstream, client: 45.33.80.243, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.176.2:8000", host: "35.194.232.40"
+2024/01/14 12:27:51 [error] 22#22: *5 connect() failed (113: No route to host) while connecting to upstream, client: 186.88.142.187, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.176.2:8000", host: "35.194.232.40:80"
+2024/01/14 12:28:00 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 12:28:00 [notice] 22#22: gracefully shutting down
+2024/01/14 12:28:00 [notice] 21#21: gracefully shutting down
+2024/01/14 12:28:00 [notice] 22#22: exiting
+2024/01/14 12:28:00 [notice] 21#21: exiting
+2024/01/14 12:28:00 [notice] 22#22: exit
+2024/01/14 12:28:00 [notice] 21#21: exit
+2024/01/14 12:28:01 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 12:28:01 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 12:28:01 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 12:28:01 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/14 12:28:01 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 12:28:01 [notice] 1#1: exit
+2024/01/14 12:36:58 [notice] 1#1: using the "epoll" event method
+2024/01/14 12:36:58 [notice] 1#1: nginx/1.25.3
+2024/01/14 12:36:58 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 12:36:58 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 12:36:58 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 12:36:58 [notice] 1#1: start worker processes
+2024/01/14 12:36:58 [notice] 1#1: start worker process 19
+2024/01/14 12:36:58 [notice] 1#1: start worker process 20
+2024/01/14 12:37:14 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 12:37:14 [notice] 19#19: gracefully shutting down
+2024/01/14 12:37:14 [notice] 20#20: gracefully shutting down
+2024/01/14 12:37:14 [notice] 19#19: exiting
+2024/01/14 12:37:14 [notice] 20#20: exiting
+2024/01/14 12:37:14 [notice] 19#19: exit
+2024/01/14 12:37:14 [notice] 20#20: exit
+2024/01/14 12:37:14 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/14 12:37:14 [notice] 1#1: worker process 19 exited with code 0
+2024/01/14 12:37:14 [notice] 1#1: worker process 20 exited with code 0
+2024/01/14 12:37:14 [notice] 1#1: exit
+2024/01/14 12:47:23 [notice] 1#1: using the "epoll" event method
+2024/01/14 12:47:23 [notice] 1#1: nginx/1.25.3
+2024/01/14 12:47:23 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 12:47:23 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 12:47:23 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 12:47:23 [notice] 1#1: start worker processes
+2024/01/14 12:47:23 [notice] 1#1: start worker process 21
+2024/01/14 12:47:23 [notice] 1#1: start worker process 22
+2024/01/14 12:47:33 [error] 22#22: *2 connect() failed (113: No route to host) while connecting to upstream, client: 185.150.26.205, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.224.2:8000", host: "35.194.232.40:80"
+2024/01/14 12:48:05 [error] 21#21: *5 connect() failed (113: No route to host) while connecting to upstream, client: 172.105.128.13, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.224.2:8000", host: "35.194.232.40"
+2024/01/14 12:48:56 [error] 21#21: *7 connect() failed (113: No route to host) while connecting to upstream, client: 172.71.167.67, server: 127.0.0.1, request: "GET /life/20230715_081530.jpg HTTP/1.1", upstream: "uwsgi://192.168.224.2:8000", host: "site.howard7777.store"
+2024/01/14 12:49:00 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 12:49:00 [notice] 21#21: gracefully shutting down
+2024/01/14 12:49:00 [notice] 22#22: gracefully shutting down
+2024/01/14 12:49:00 [notice] 22#22: exiting
+2024/01/14 12:49:00 [notice] 21#21: exiting
+2024/01/14 12:49:00 [notice] 22#22: exit
+2024/01/14 12:49:00 [notice] 21#21: exit
+2024/01/14 12:49:00 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 12:49:00 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 12:49:00 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 12:49:00 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/14 12:49:00 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 12:49:00 [notice] 1#1: exit
+2024/01/14 12:53:53 [notice] 1#1: using the "epoll" event method
+2024/01/14 12:53:53 [notice] 1#1: nginx/1.25.3
+2024/01/14 12:53:53 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 12:53:53 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 12:53:53 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 12:53:53 [notice] 1#1: start worker processes
+2024/01/14 12:53:53 [notice] 1#1: start worker process 22
+2024/01/14 12:53:53 [notice] 1#1: start worker process 23
+2024/01/14 12:59:28 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 12:59:28 [notice] 23#23: gracefully shutting down
+2024/01/14 12:59:28 [notice] 23#23: exiting
+2024/01/14 12:59:28 [notice] 23#23: exit
+2024/01/14 12:59:28 [notice] 22#22: gracefully shutting down
+2024/01/14 12:59:28 [notice] 22#22: exiting
+2024/01/14 12:59:28 [notice] 22#22: exit
+2024/01/14 12:59:28 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/14 12:59:28 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 12:59:28 [notice] 1#1: worker process 23 exited with code 0
+2024/01/14 12:59:28 [notice] 1#1: exit
+2024/01/14 13:06:48 [notice] 1#1: using the "epoll" event method
+2024/01/14 13:06:48 [notice] 1#1: nginx/1.25.3
+2024/01/14 13:06:48 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 13:06:48 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 13:06:48 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 13:06:48 [notice] 1#1: start worker processes
+2024/01/14 13:06:48 [notice] 1#1: start worker process 21
+2024/01/14 13:06:48 [notice] 1#1: start worker process 22
+2024/01/14 13:07:52 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 13:07:52 [notice] 21#21: gracefully shutting down
+2024/01/14 13:07:52 [notice] 22#22: gracefully shutting down
+2024/01/14 13:07:52 [notice] 21#21: exiting
+2024/01/14 13:07:52 [notice] 22#22: exiting
+2024/01/14 13:07:52 [notice] 22#22: exit
+2024/01/14 13:07:52 [notice] 21#21: exit
+2024/01/14 13:07:52 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 13:07:52 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 13:07:52 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 13:07:52 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/14 13:07:52 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 13:07:52 [notice] 1#1: exit
+2024/01/14 13:12:22 [notice] 1#1: using the "epoll" event method
+2024/01/14 13:12:22 [notice] 1#1: nginx/1.25.3
+2024/01/14 13:12:22 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 13:12:22 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 13:12:22 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 13:12:22 [notice] 1#1: start worker processes
+2024/01/14 13:12:22 [notice] 1#1: start worker process 22
+2024/01/14 13:12:22 [notice] 1#1: start worker process 23
+2024/01/14 13:21:34 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 13:21:34 [notice] 22#22: gracefully shutting down
+2024/01/14 13:21:34 [notice] 23#23: gracefully shutting down
+2024/01/14 13:21:34 [notice] 23#23: exiting
+2024/01/14 13:21:34 [notice] 22#22: exiting
+2024/01/14 13:21:34 [notice] 22#22: exit
+2024/01/14 13:21:34 [notice] 23#23: exit
+2024/01/14 13:21:34 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/14 13:21:34 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 13:21:34 [notice] 1#1: worker process 23 exited with code 0
+2024/01/14 13:21:34 [notice] 1#1: exit
+2024/01/14 13:34:30 [notice] 1#1: using the "epoll" event method
+2024/01/14 13:34:30 [notice] 1#1: nginx/1.25.3
+2024/01/14 13:34:30 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 13:34:30 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 13:34:30 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 13:34:30 [notice] 1#1: start worker processes
+2024/01/14 13:34:30 [notice] 1#1: start worker process 24
+2024/01/14 13:34:30 [notice] 1#1: start worker process 25
+2024/01/14 13:35:44 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 13:35:44 [notice] 25#25: gracefully shutting down
+2024/01/14 13:35:44 [notice] 25#25: exiting
+2024/01/14 13:35:44 [notice] 25#25: exit
+2024/01/14 13:35:44 [notice] 24#24: gracefully shutting down
+2024/01/14 13:35:44 [notice] 24#24: exiting
+2024/01/14 13:35:44 [notice] 24#24: exit
+2024/01/14 13:35:44 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2024/01/14 13:35:44 [notice] 1#1: worker process 24 exited with code 0
+2024/01/14 13:35:44 [notice] 1#1: worker process 25 exited with code 0
+2024/01/14 13:35:44 [notice] 1#1: exit
+2024/01/14 13:39:51 [notice] 1#1: using the "epoll" event method
+2024/01/14 13:39:51 [notice] 1#1: nginx/1.25.3
+2024/01/14 13:39:51 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 13:39:51 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 13:39:51 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 13:39:51 [notice] 1#1: start worker processes
+2024/01/14 13:39:51 [notice] 1#1: start worker process 21
+2024/01/14 13:39:51 [notice] 1#1: start worker process 22
+2024/01/14 13:42:12 [error] 21#21: *5 open() "/usr/share/nginx/html/static/images/icon/styles.css" failed (2: No such file or directory), client: 172.69.134.234, server: 127.0.0.1, request: "GET /static/images/icon/styles.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:42:12 [error] 22#22: *6 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js" failed (2: No such file or directory), client: 172.69.135.143, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:42:12 [error] 21#21: *7 open() "/usr/share/nginx/html/static/css/mainstyle.css" failed (2: No such file or directory), client: 172.69.135.172, server: 127.0.0.1, request: "GET /static/css/mainstyle.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:42:12 [error] 22#22: *8 open() "/usr/share/nginx/html/static/images/logo.png" failed (2: No such file or directory), client: 172.69.134.138, server: 127.0.0.1, request: "GET /static/images/logo.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:42:12 [error] 21#21: *9 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css" failed (2: No such file or directory), client: 172.69.134.128, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:42:12 [error] 21#21: *10 open() "/usr/share/nginx/html/static/images/speaker.png" failed (2: No such file or directory), client: 172.69.134.134, server: 127.0.0.1, request: "GET /static/images/speaker.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:42:13 [error] 21#21: *11 open() "/usr/share/nginx/html/static/images/background_img.jpg" failed (2: No such file or directory), client: 172.69.135.13, server: 127.0.0.1, request: "GET /static/images/background_img.jpg HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:45:35 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 13:45:35 [notice] 21#21: gracefully shutting down
+2024/01/14 13:45:35 [notice] 21#21: exiting
+2024/01/14 13:45:35 [notice] 21#21: exit
+2024/01/14 13:45:35 [notice] 22#22: gracefully shutting down
+2024/01/14 13:45:35 [notice] 22#22: exiting
+2024/01/14 13:45:35 [notice] 22#22: exit
+2024/01/14 13:45:35 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/14 13:45:35 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 13:45:35 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 13:45:35 [notice] 1#1: exit
+2024/01/14 13:45:59 [notice] 1#1: using the "epoll" event method
+2024/01/14 13:45:59 [notice] 1#1: nginx/1.25.3
+2024/01/14 13:45:59 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 13:45:59 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 13:45:59 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 13:45:59 [notice] 1#1: start worker processes
+2024/01/14 13:45:59 [notice] 1#1: start worker process 19
+2024/01/14 13:45:59 [notice] 1#1: start worker process 20
+2024/01/14 13:49:59 [error] 20#20: *3 open() "/usr/share/nginx/html/static/images/icon/styles.css" failed (2: No such file or directory), client: 172.71.154.165, server: 127.0.0.1, request: "GET /static/images/icon/styles.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:49:59 [error] 20#20: *4 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js" failed (2: No such file or directory), client: 172.71.154.102, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:49:59 [error] 19#19: *5 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css" failed (2: No such file or directory), client: 172.71.154.222, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:49:59 [error] 20#20: *6 open() "/usr/share/nginx/html/static/css/mainstyle.css" failed (2: No such file or directory), client: 172.71.154.23, server: 127.0.0.1, request: "GET /static/css/mainstyle.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:49:59 [error] 20#20: *7 open() "/usr/share/nginx/html/static/images/logo.png" failed (2: No such file or directory), client: 172.71.154.161, server: 127.0.0.1, request: "GET /static/images/logo.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:50:35 [error] 20#20: *10 open() "/usr/share/nginx/html/static/css/mainstyle.css" failed (2: No such file or directory), client: 162.158.166.177, server: 127.0.0.1, request: "GET /static/css/mainstyle.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:50:35 [error] 20#20: *11 open() "/usr/share/nginx/html/static/images/icon/styles.css" failed (2: No such file or directory), client: 162.158.167.39, server: 127.0.0.1, request: "GET /static/images/icon/styles.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:50:35 [error] 20#20: *12 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js" failed (2: No such file or directory), client: 162.158.167.2, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:50:35 [error] 20#20: *13 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css" failed (2: No such file or directory), client: 162.158.166.239, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:51:39 [error] 19#19: *25 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css" failed (2: No such file or directory), client: 172.69.134.128, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:51:39 [error] 20#20: *24 open() "/usr/share/nginx/html/static/css/mainstyle.css" failed (2: No such file or directory), client: 172.69.135.171, server: 127.0.0.1, request: "GET /static/css/mainstyle.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:51:39 [error] 20#20: *26 open() "/usr/share/nginx/html/static/images/icon/styles.css" failed (2: No such file or directory), client: 172.69.134.235, server: 127.0.0.1, request: "GET /static/images/icon/styles.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:51:39 [error] 19#19: *27 open() "/usr/share/nginx/html/static/images/logo.png" failed (2: No such file or directory), client: 172.69.134.138, server: 127.0.0.1, request: "GET /static/images/logo.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:51:39 [error] 20#20: *28 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js" failed (2: No such file or directory), client: 172.69.135.144, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:51:39 [error] 19#19: *29 open() "/usr/share/nginx/html/static/images/speaker.png" failed (2: No such file or directory), client: 172.69.134.134, server: 127.0.0.1, request: "GET /static/images/speaker.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 13:51:39 [error] 19#19: *30 open() "/usr/share/nginx/html/static/images/background_img.jpg" failed (2: No such file or directory), client: 172.69.135.14, server: 127.0.0.1, request: "GET /static/images/background_img.jpg HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 14:04:41 [error] 19#19: *41 open() "/usr/share/nginx/html/static/images/icon/styles.css" failed (2: No such file or directory), client: 172.69.134.235, server: 127.0.0.1, request: "GET /static/images/icon/styles.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 14:05:02 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 14:05:02 [notice] 19#19: gracefully shutting down
+2024/01/14 14:05:02 [notice] 20#20: gracefully shutting down
+2024/01/14 14:05:02 [notice] 20#20: exiting
+2024/01/14 14:05:02 [notice] 19#19: exiting
+2024/01/14 14:05:02 [notice] 20#20: exit
+2024/01/14 14:05:02 [notice] 19#19: exit
+2024/01/14 14:05:02 [notice] 1#1: signal 17 (SIGCHLD) received from 19
+2024/01/14 14:05:02 [notice] 1#1: worker process 19 exited with code 0
+2024/01/14 14:05:02 [notice] 1#1: worker process 20 exited with code 0
+2024/01/14 14:05:02 [notice] 1#1: exit
+2024/01/14 14:56:27 [notice] 1#1: using the "epoll" event method
+2024/01/14 14:56:27 [notice] 1#1: nginx/1.25.3
+2024/01/14 14:56:27 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 14:56:27 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 14:56:27 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 14:56:27 [notice] 1#1: start worker processes
+2024/01/14 14:56:27 [notice] 1#1: start worker process 22
+2024/01/14 14:56:27 [notice] 1#1: start worker process 23
+2024/01/14 14:56:39 [error] 23#23: *3 open() "/usr/share/nginx/html/static/images/icon/styles.css" failed (2: No such file or directory), client: 172.71.154.164, server: 127.0.0.1, request: "GET /static/images/icon/styles.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 14:56:39 [error] 22#22: *4 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js" failed (2: No such file or directory), client: 172.71.154.103, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 14:56:39 [error] 23#23: *5 open() "/usr/share/nginx/html/static/css/mainstyle.css" failed (2: No such file or directory), client: 172.71.154.23, server: 127.0.0.1, request: "GET /static/css/mainstyle.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 14:56:39 [error] 22#22: *6 open() "/usr/share/nginx/html/static/images/speaker.png" failed (2: No such file or directory), client: 172.71.154.57, server: 127.0.0.1, request: "GET /static/images/speaker.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 14:56:39 [error] 22#22: *7 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css" failed (2: No such file or directory), client: 172.71.154.223, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 14:56:39 [error] 22#22: *8 open() "/usr/share/nginx/html/static/images/logo.png" failed (2: No such file or directory), client: 172.71.154.161, server: 127.0.0.1, request: "GET /static/images/logo.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 14:56:40 [error] 22#22: *9 open() "/usr/share/nginx/html/static/images/background_img.jpg" failed (2: No such file or directory), client: 172.69.135.13, server: 127.0.0.1, request: "GET /static/images/background_img.jpg HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:24 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 15:04:24 [notice] 23#23: gracefully shutting down
+2024/01/14 15:04:24 [notice] 22#22: gracefully shutting down
+2024/01/14 15:04:24 [notice] 23#23: exiting
+2024/01/14 15:04:24 [notice] 22#22: exiting
+2024/01/14 15:04:24 [notice] 23#23: exit
+2024/01/14 15:04:24 [notice] 22#22: exit
+2024/01/14 15:04:24 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/01/14 15:04:24 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 15:04:24 [notice] 1#1: worker process 23 exited with code 0
+2024/01/14 15:04:24 [notice] 1#1: exit
+2024/01/14 15:04:40 [notice] 1#1: using the "epoll" event method
+2024/01/14 15:04:40 [notice] 1#1: nginx/1.25.3
+2024/01/14 15:04:40 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 15:04:40 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 15:04:40 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 15:04:40 [notice] 1#1: start worker processes
+2024/01/14 15:04:40 [notice] 1#1: start worker process 21
+2024/01/14 15:04:40 [notice] 1#1: start worker process 22
+2024/01/14 15:04:43 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:44 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:48 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:48 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:48 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:49 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:49 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:49 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:49 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:49 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:49 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:49 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:49 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:50 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:50 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:50 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:50 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:50 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:53 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:53 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:54 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:54 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:55 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:55 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:55 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:55 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:55 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:56 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:04:56 [error] 21#21: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.118.38, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/14 15:04:56 [error] 22#22: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 162.158.119.94, server: 127.0.0.1, request: "GET /favicon.ico HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:05:23 [error] 21#21: *42 open() "/usr/share/nginx/html/static/images/swamp.png" failed (2: No such file or directory), client: 162.158.119.70, server: 127.0.0.1, request: "GET /static/images/swamp.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 15:33:02 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 15:33:02 [notice] 21#21: gracefully shutting down
+2024/01/14 15:33:02 [notice] 21#21: exiting
+2024/01/14 15:33:02 [notice] 21#21: exit
+2024/01/14 15:33:02 [notice] 22#22: gracefully shutting down
+2024/01/14 15:33:02 [notice] 22#22: exiting
+2024/01/14 15:33:02 [notice] 22#22: exit
+2024/01/14 15:33:02 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 15:33:02 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 15:33:02 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 15:33:02 [notice] 1#1: exit
+2024/01/14 21:44:47 [notice] 1#1: using the "epoll" event method
+2024/01/14 21:44:47 [notice] 1#1: nginx/1.25.3
+2024/01/14 21:44:47 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 21:44:47 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 21:44:47 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 21:44:47 [notice] 1#1: start worker processes
+2024/01/14 21:44:47 [notice] 1#1: start worker process 21
+2024/01/14 21:44:47 [notice] 1#1: start worker process 22
+2024/01/14 21:45:00 [error] 22#22: *3 open() "/usr/share/nginx/html/static/css/mainstyle.css" failed (2: No such file or directory), client: 172.71.158.71, server: 127.0.0.1, request: "GET /static/css/mainstyle.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 21:45:00 [error] 21#21: *4 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css" failed (2: No such file or directory), client: 172.71.159.40, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/css/bootstrap.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 21:45:00 [error] 21#21: *5 open() "/usr/share/nginx/html/static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js" failed (2: No such file or directory), client: 172.71.158.136, server: 127.0.0.1, request: "GET /static/plugins/bootstrap-5.3.0-dist/js/bootstrap.min.js HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 21:45:00 [error] 21#21: *6 open() "/usr/share/nginx/html/static/images/icon/styles.css" failed (2: No such file or directory), client: 172.71.158.168, server: 127.0.0.1, request: "GET /static/images/icon/styles.css HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 21:45:00 [error] 21#21: *7 open() "/usr/share/nginx/html/static/images/speaker.png" failed (2: No such file or directory), client: 172.71.158.26, server: 127.0.0.1, request: "GET /static/images/speaker.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 21:45:00 [error] 21#21: *8 open() "/usr/share/nginx/html/static/images/logo.png" failed (2: No such file or directory), client: 172.71.158.250, server: 127.0.0.1, request: "GET /static/images/logo.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 21:45:01 [error] 21#21: *9 open() "/usr/share/nginx/html/static/images/background_img.jpg" failed (2: No such file or directory), client: 172.71.158.114, server: 127.0.0.1, request: "GET /static/images/background_img.jpg HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/14 21:45:18 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 21:45:18 [notice] 21#21: gracefully shutting down
+2024/01/14 21:45:18 [notice] 22#22: gracefully shutting down
+2024/01/14 21:45:18 [notice] 22#22: exiting
+2024/01/14 21:45:18 [notice] 21#21: exiting
+2024/01/14 21:45:18 [notice] 22#22: exit
+2024/01/14 21:45:18 [notice] 21#21: exit
+2024/01/14 21:45:18 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/14 21:45:18 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 21:45:18 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 21:45:18 [notice] 1#1: exit
+2024/01/14 21:50:20 [notice] 1#1: using the "epoll" event method
+2024/01/14 21:50:20 [notice] 1#1: nginx/1.25.3
+2024/01/14 21:50:20 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 21:50:20 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 21:50:20 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 21:50:20 [notice] 1#1: start worker processes
+2024/01/14 21:50:20 [notice] 1#1: start worker process 20
+2024/01/14 21:50:20 [notice] 1#1: start worker process 21
+2024/01/14 21:53:37 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 21:53:37 [notice] 20#20: gracefully shutting down
+2024/01/14 21:53:37 [notice] 20#20: exiting
+2024/01/14 21:53:37 [notice] 20#20: exit
+2024/01/14 21:53:37 [notice] 21#21: gracefully shutting down
+2024/01/14 21:53:37 [notice] 21#21: exiting
+2024/01/14 21:53:37 [notice] 21#21: exit
+2024/01/14 21:53:37 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 21:53:37 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 21:53:37 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 21:53:37 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/14 21:53:37 [notice] 1#1: worker process 20 exited with code 0
+2024/01/14 21:53:37 [notice] 1#1: exit
+2024/01/14 21:54:48 [notice] 1#1: using the "epoll" event method
+2024/01/14 21:54:48 [notice] 1#1: nginx/1.25.3
+2024/01/14 21:54:48 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 21:54:48 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 21:54:48 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 21:54:48 [notice] 1#1: start worker processes
+2024/01/14 21:54:48 [notice] 1#1: start worker process 21
+2024/01/14 21:54:48 [notice] 1#1: start worker process 22
+2024/01/14 22:32:05 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 22:32:05 [notice] 21#21: gracefully shutting down
+2024/01/14 22:32:05 [notice] 21#21: exiting
+2024/01/14 22:32:05 [notice] 21#21: exit
+2024/01/14 22:32:05 [notice] 22#22: gracefully shutting down
+2024/01/14 22:32:05 [notice] 22#22: exiting
+2024/01/14 22:32:05 [notice] 22#22: exit
+2024/01/14 22:32:05 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 22:32:05 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 22:32:05 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 22:32:05 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/14 22:32:05 [notice] 1#1: worker process 22 exited with code 0
+2024/01/14 22:32:05 [notice] 1#1: exit
+2024/01/14 22:32:35 [notice] 1#1: using the "epoll" event method
+2024/01/14 22:32:35 [notice] 1#1: nginx/1.25.3
+2024/01/14 22:32:35 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/14 22:32:35 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/14 22:32:35 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/14 22:32:35 [notice] 1#1: start worker processes
+2024/01/14 22:32:35 [notice] 1#1: start worker process 20
+2024/01/14 22:32:35 [notice] 1#1: start worker process 21
+2024/01/14 22:44:50 [warn] 21#21: *48 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 172.69.22.234, server: 127.0.0.1, request: "POST /admin/myApp/pic_display/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/pic_display/add/"
+2024/01/14 22:46:26 [warn] 21#21: *51 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000002, client: 162.158.166.99, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/14 22:51:47 [warn] 21#21: *83 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000003, client: 172.71.158.230, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/14 22:52:59 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/14 22:52:59 [notice] 21#21: gracefully shutting down
+2024/01/14 22:52:59 [notice] 20#20: gracefully shutting down
+2024/01/14 22:52:59 [notice] 21#21: exiting
+2024/01/14 22:52:59 [notice] 20#20: exiting
+2024/01/14 22:52:59 [notice] 21#21: exit
+2024/01/14 22:52:59 [notice] 20#20: exit
+2024/01/14 22:52:59 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/14 22:52:59 [notice] 1#1: worker process 20 exited with code 0
+2024/01/14 22:52:59 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/14 22:52:59 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/14 22:52:59 [notice] 1#1: worker process 21 exited with code 0
+2024/01/14 22:52:59 [notice] 1#1: exit
+2024/01/15 20:19:12 [notice] 1#1: using the "epoll" event method
+2024/01/15 20:19:12 [notice] 1#1: nginx/1.25.3
+2024/01/15 20:19:12 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/15 20:19:12 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/15 20:19:12 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/15 20:19:12 [notice] 1#1: start worker processes
+2024/01/15 20:19:12 [notice] 1#1: start worker process 22
+2024/01/15 20:19:12 [notice] 1#1: start worker process 23
+2024/01/15 20:46:24 [error] 23#23: *24 open() "/usr/share/nginx/html/static/images/swamp.png" failed (2: No such file or directory), client: 172.70.223.206, server: 127.0.0.1, request: "GET /static/images/swamp.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/15 20:47:13 [warn] 23#23: *12 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 172.70.223.14, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 20:48:23 [warn] 22#22: *71 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000002, client: 162.158.189.58, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 20:50:59 [warn] 22#22: *74 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000003, client: 172.70.188.91, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 20:52:26 [warn] 22#22: *77 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000004, client: 162.158.162.177, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 20:58:30 [warn] 22#22: *94 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000005, client: 172.70.143.66, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 21:05:15 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/15 21:05:15 [notice] 22#22: gracefully shutting down
+2024/01/15 21:05:15 [notice] 23#23: gracefully shutting down
+2024/01/15 21:05:15 [notice] 23#23: exiting
+2024/01/15 21:05:15 [notice] 22#22: exiting
+2024/01/15 21:05:15 [notice] 23#23: exit
+2024/01/15 21:05:15 [notice] 22#22: exit
+2024/01/15 21:05:15 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/01/15 21:05:15 [notice] 1#1: worker process 23 exited with code 0
+2024/01/15 21:05:15 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/15 21:05:15 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/15 21:05:15 [notice] 1#1: worker process 22 exited with code 0
+2024/01/15 21:05:15 [notice] 1#1: exit
+2024/01/15 21:11:25 [notice] 1#1: using the "epoll" event method
+2024/01/15 21:11:25 [notice] 1#1: nginx/1.25.3
+2024/01/15 21:11:25 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/15 21:11:25 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/15 21:11:25 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/15 21:11:25 [notice] 1#1: start worker processes
+2024/01/15 21:11:25 [notice] 1#1: start worker process 22
+2024/01/15 21:11:25 [notice] 1#1: start worker process 23
+2024/01/15 21:13:42 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/15 21:13:42 [notice] 22#22: gracefully shutting down
+2024/01/15 21:13:42 [notice] 23#23: gracefully shutting down
+2024/01/15 21:13:42 [notice] 22#22: exiting
+2024/01/15 21:13:42 [notice] 23#23: exiting
+2024/01/15 21:13:42 [notice] 22#22: exit
+2024/01/15 21:13:42 [notice] 23#23: exit
+2024/01/15 21:13:42 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/15 21:13:42 [notice] 1#1: worker process 22 exited with code 0
+2024/01/15 21:13:42 [notice] 1#1: worker process 23 exited with code 0
+2024/01/15 21:13:42 [notice] 1#1: exit
+2024/01/15 21:15:49 [notice] 1#1: using the "epoll" event method
+2024/01/15 21:15:49 [notice] 1#1: nginx/1.25.3
+2024/01/15 21:15:49 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/15 21:15:49 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/15 21:15:49 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/15 21:15:49 [notice] 1#1: start worker processes
+2024/01/15 21:15:49 [notice] 1#1: start worker process 20
+2024/01/15 21:15:49 [notice] 1#1: start worker process 21
+2024/01/15 21:16:48 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/15 21:16:48 [notice] 20#20: gracefully shutting down
+2024/01/15 21:16:48 [notice] 20#20: exiting
+2024/01/15 21:16:48 [notice] 20#20: exit
+2024/01/15 21:16:48 [notice] 21#21: gracefully shutting down
+2024/01/15 21:16:48 [notice] 21#21: exiting
+2024/01/15 21:16:48 [notice] 21#21: exit
+2024/01/15 21:16:48 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/15 21:16:48 [notice] 1#1: worker process 20 exited with code 0
+2024/01/15 21:16:48 [notice] 1#1: worker process 21 exited with code 0
+2024/01/15 21:16:48 [notice] 1#1: exit
+2024/01/15 21:29:07 [notice] 1#1: using the "epoll" event method
+2024/01/15 21:29:07 [notice] 1#1: nginx/1.25.3
+2024/01/15 21:29:07 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/15 21:29:07 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/15 21:29:07 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/15 21:29:07 [notice] 1#1: start worker processes
+2024/01/15 21:29:07 [notice] 1#1: start worker process 20
+2024/01/15 21:29:07 [notice] 1#1: start worker process 21
+2024/01/15 21:30:59 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/15 21:30:59 [notice] 20#20: gracefully shutting down
+2024/01/15 21:30:59 [notice] 20#20: exiting
+2024/01/15 21:30:59 [notice] 20#20: exit
+2024/01/15 21:30:59 [notice] 21#21: gracefully shutting down
+2024/01/15 21:30:59 [notice] 21#21: exiting
+2024/01/15 21:30:59 [notice] 21#21: exit
+2024/01/15 21:30:59 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/15 21:30:59 [notice] 1#1: worker process 20 exited with code 0
+2024/01/15 21:30:59 [notice] 1#1: worker process 21 exited with code 0
+2024/01/15 21:30:59 [notice] 1#1: exit
+2024/01/15 21:49:38 [notice] 1#1: using the "epoll" event method
+2024/01/15 21:49:38 [notice] 1#1: nginx/1.25.3
+2024/01/15 21:49:38 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/15 21:49:38 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/15 21:49:38 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/15 21:49:38 [notice] 1#1: start worker processes
+2024/01/15 21:49:38 [notice] 1#1: start worker process 22
+2024/01/15 21:49:38 [notice] 1#1: start worker process 23
+2024/01/15 21:50:12 [error] 22#22: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.71.214.247, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.128.2:8000", host: "site.howard7777.store"
+2024/01/15 21:51:32 [error] 23#23: *3 connect() failed (111: Connection refused) while connecting to upstream, client: 91.92.242.74, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.128.2:8000", host: "35.194.232.40:80"
+2024/01/15 21:51:42 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/15 21:51:42 [notice] 23#23: gracefully shutting down
+2024/01/15 21:51:42 [notice] 22#22: gracefully shutting down
+2024/01/15 21:51:42 [notice] 23#23: exiting
+2024/01/15 21:51:42 [notice] 22#22: exiting
+2024/01/15 21:51:42 [notice] 22#22: exit
+2024/01/15 21:51:42 [notice] 23#23: exit
+2024/01/15 21:51:42 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/01/15 21:51:42 [notice] 1#1: worker process 23 exited with code 0
+2024/01/15 21:51:42 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/15 21:51:42 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/15 21:51:42 [notice] 1#1: worker process 22 exited with code 0
+2024/01/15 21:51:42 [notice] 1#1: exit
+2024/01/15 22:00:39 [notice] 1#1: using the "epoll" event method
+2024/01/15 22:00:39 [notice] 1#1: nginx/1.25.3
+2024/01/15 22:00:39 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/15 22:00:39 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/15 22:00:39 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/15 22:00:39 [notice] 1#1: start worker processes
+2024/01/15 22:00:39 [notice] 1#1: start worker process 20
+2024/01/15 22:00:39 [notice] 1#1: start worker process 21
+2024/01/15 22:03:33 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/15 22:03:33 [notice] 20#20: gracefully shutting down
+2024/01/15 22:03:33 [notice] 20#20: exiting
+2024/01/15 22:03:33 [notice] 20#20: exit
+2024/01/15 22:03:33 [notice] 21#21: gracefully shutting down
+2024/01/15 22:03:33 [notice] 21#21: exiting
+2024/01/15 22:03:33 [notice] 21#21: exit
+2024/01/15 22:03:33 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/15 22:03:33 [notice] 1#1: worker process 21 exited with code 0
+2024/01/15 22:03:33 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/15 22:03:33 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/15 22:03:33 [notice] 1#1: worker process 20 exited with code 0
+2024/01/15 22:03:33 [notice] 1#1: exit
+2024/01/15 22:37:54 [notice] 1#1: using the "epoll" event method
+2024/01/15 22:37:54 [notice] 1#1: nginx/1.25.3
+2024/01/15 22:37:54 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/15 22:37:54 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/15 22:37:54 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/15 22:37:54 [notice] 1#1: start worker processes
+2024/01/15 22:37:54 [notice] 1#1: start worker process 22
+2024/01/15 22:37:54 [notice] 1#1: start worker process 23
+2024/01/15 22:38:17 [error] 22#22: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.70.188.103, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://172.18.0.2:8000", host: "site.howard7777.store"
+2024/01/15 22:44:15 [warn] 22#22: *10 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 172.70.222.161, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 22:44:46 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/15 22:44:46 [notice] 22#22: gracefully shutting down
+2024/01/15 22:44:46 [notice] 23#23: gracefully shutting down
+2024/01/15 22:44:46 [notice] 23#23: exiting
+2024/01/15 22:44:46 [notice] 22#22: exiting
+2024/01/15 22:44:46 [notice] 23#23: exit
+2024/01/15 22:44:46 [notice] 22#22: exit
+2024/01/15 22:44:46 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/15 22:44:46 [notice] 1#1: worker process 22 exited with code 0
+2024/01/15 22:44:46 [notice] 1#1: worker process 23 exited with code 0
+2024/01/15 22:44:46 [notice] 1#1: exit
+2024/01/15 22:45:01 [notice] 1#1: using the "epoll" event method
+2024/01/15 22:45:01 [notice] 1#1: nginx/1.25.3
+2024/01/15 22:45:01 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/15 22:45:01 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/15 22:45:01 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/15 22:45:01 [notice] 1#1: start worker processes
+2024/01/15 22:45:01 [notice] 1#1: start worker process 21
+2024/01/15 22:45:01 [notice] 1#1: start worker process 22
+2024/01/15 22:45:35 [warn] 22#22: *1 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 172.70.123.137, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 22:45:43 [warn] 22#22: *1 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000002, client: 172.70.123.137, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 22:51:08 [warn] 22#22: *69 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000003, client: 172.71.218.20, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 22:51:23 [warn] 22#22: *69 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000004, client: 172.71.218.20, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 22:52:06 [warn] 22#22: *74 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000005, client: 162.158.178.33, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 22:55:21 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/15 22:55:21 [notice] 21#21: gracefully shutting down
+2024/01/15 22:55:21 [notice] 21#21: exiting
+2024/01/15 22:55:21 [notice] 21#21: exit
+2024/01/15 22:55:21 [notice] 22#22: gracefully shutting down
+2024/01/15 22:55:21 [notice] 22#22: exiting
+2024/01/15 22:55:21 [notice] 22#22: exit
+2024/01/15 22:55:21 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/15 22:55:21 [notice] 1#1: worker process 21 exited with code 0
+2024/01/15 22:55:21 [notice] 1#1: worker process 22 exited with code 0
+2024/01/15 22:55:21 [notice] 1#1: exit
+2024/01/15 22:55:56 [notice] 1#1: using the "epoll" event method
+2024/01/15 22:55:56 [notice] 1#1: nginx/1.25.3
+2024/01/15 22:55:56 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/15 22:55:56 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/15 22:55:56 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/15 22:55:56 [notice] 1#1: start worker processes
+2024/01/15 22:55:56 [notice] 1#1: start worker process 20
+2024/01/15 22:55:56 [notice] 1#1: start worker process 21
+2024/01/15 22:56:29 [warn] 21#21: *1 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 162.158.163.156, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 22:56:41 [warn] 21#21: *1 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000002, client: 162.158.163.156, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 22:58:08 [warn] 20#20: *8 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000003, client: 172.70.222.161, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/15 22:58:57 [warn] 20#20: *8 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000004, client: 172.70.222.161, server: 127.0.0.1, request: "POST /admin/myApp/product/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/add/"
+2024/01/16 00:44:10 [error] 20#20: *70 open() "/usr/share/nginx/html/static/images/swamp.png" failed (2: No such file or directory), client: 172.69.22.36, server: 127.0.0.1, request: "GET /static/images/swamp.png HTTP/1.1", host: "site.howard7777.store"
+2024/01/16 00:46:28 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 00:46:28 [notice] 21#21: gracefully shutting down
+2024/01/16 00:46:28 [notice] 21#21: exiting
+2024/01/16 00:46:28 [notice] 21#21: exit
+2024/01/16 00:46:28 [notice] 20#20: gracefully shutting down
+2024/01/16 00:46:28 [notice] 20#20: exiting
+2024/01/16 00:46:28 [notice] 20#20: exit
+2024/01/16 00:46:28 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/16 00:46:28 [notice] 1#1: worker process 20 exited with code 0
+2024/01/16 00:46:28 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/16 00:46:28 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/16 00:46:28 [notice] 1#1: worker process 21 exited with code 0
+2024/01/16 00:46:28 [notice] 1#1: exit
+2024/01/16 13:24:23 [notice] 1#1: using the "epoll" event method
+2024/01/16 13:24:23 [notice] 1#1: nginx/1.25.3
+2024/01/16 13:24:23 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 13:24:23 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 13:24:23 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 13:24:23 [notice] 1#1: start worker processes
+2024/01/16 13:24:23 [notice] 1#1: start worker process 21
+2024/01/16 13:24:23 [notice] 1#1: start worker process 22
+2024/01/16 13:25:05 [error] 21#21: *5 open() "/usr/share/nginx/html/static/images/swamp.png" failed (2: No such file or directory), client: 172.71.154.125, server: 127.0.0.1, request: "GET /static/images/swamp.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/16 13:26:11 [warn] 21#21: *1 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 172.71.154.215, server: 127.0.0.1, request: "POST /admin/myApp/pic_display/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/pic_display/add/"
+2024/01/16 13:35:32 [warn] 21#21: *170 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000002, client: 172.71.154.143, server: 127.0.0.1, request: "POST /admin/myApp/pic_display/add/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/pic_display/add/"
+2024/01/16 13:37:45 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 13:37:45 [notice] 21#21: gracefully shutting down
+2024/01/16 13:37:45 [notice] 22#22: gracefully shutting down
+2024/01/16 13:37:45 [notice] 21#21: exiting
+2024/01/16 13:37:45 [notice] 22#22: exiting
+2024/01/16 13:37:45 [notice] 22#22: exit
+2024/01/16 13:37:45 [notice] 21#21: exit
+2024/01/16 13:37:45 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/16 13:37:45 [notice] 1#1: worker process 21 exited with code 0
+2024/01/16 13:37:45 [notice] 1#1: worker process 22 exited with code 0
+2024/01/16 13:37:45 [notice] 1#1: exit
+2024/01/16 13:38:06 [notice] 1#1: using the "epoll" event method
+2024/01/16 13:38:06 [notice] 1#1: nginx/1.25.3
+2024/01/16 13:38:06 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 13:38:06 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 13:38:06 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 13:38:06 [notice] 1#1: start worker processes
+2024/01/16 13:38:06 [notice] 1#1: start worker process 20
+2024/01/16 13:38:06 [notice] 1#1: start worker process 21
+2024/01/16 13:39:19 [warn] 21#21: *1 a client request body is buffered to a temporary file /var/cache/nginx/client_temp/0000000001, client: 172.69.22.171, server: 127.0.0.1, request: "POST /admin/myApp/product/1/change/ HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/1/change/"
+2024/01/16 13:40:38 [error] 21#21: *25 open() "/usr/share/nginx/html/media/system/js/core.js" failed (2: No such file or directory), client: 142.44.176.65, server: 127.0.0.1, request: "GET /media/system/js/core.js HTTP/1.1", host: "35.194.232.40"
+2024/01/16 13:41:39 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 13:41:39 [notice] 20#20: gracefully shutting down
+2024/01/16 13:41:39 [notice] 21#21: gracefully shutting down
+2024/01/16 13:41:39 [notice] 20#20: exiting
+2024/01/16 13:41:39 [notice] 21#21: exiting
+2024/01/16 13:41:39 [notice] 21#21: exit
+2024/01/16 13:41:39 [notice] 20#20: exit
+2024/01/16 13:41:39 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/16 13:41:39 [notice] 1#1: worker process 20 exited with code 0
+2024/01/16 13:41:39 [notice] 1#1: worker process 21 exited with code 0
+2024/01/16 13:41:39 [notice] 1#1: exit
+2024/01/16 13:42:01 [notice] 1#1: using the "epoll" event method
+2024/01/16 13:42:01 [notice] 1#1: nginx/1.25.3
+2024/01/16 13:42:01 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 13:42:01 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 13:42:01 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 13:42:01 [notice] 1#1: start worker processes
+2024/01/16 13:42:01 [notice] 1#1: start worker process 20
+2024/01/16 13:42:01 [notice] 1#1: start worker process 21
+2024/01/16 14:02:14 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 14:02:14 [notice] 21#21: gracefully shutting down
+2024/01/16 14:02:14 [notice] 20#20: gracefully shutting down
+2024/01/16 14:02:14 [notice] 21#21: exiting
+2024/01/16 14:02:14 [notice] 20#20: exiting
+2024/01/16 14:02:14 [notice] 21#21: exit
+2024/01/16 14:02:14 [notice] 20#20: exit
+2024/01/16 14:02:15 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/16 14:02:15 [notice] 1#1: worker process 20 exited with code 0
+2024/01/16 14:02:15 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/16 14:02:15 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/16 14:02:15 [notice] 1#1: worker process 21 exited with code 0
+2024/01/16 14:02:15 [notice] 1#1: exit
+2024/01/16 14:02:41 [notice] 1#1: using the "epoll" event method
+2024/01/16 14:02:41 [notice] 1#1: nginx/1.25.3
+2024/01/16 14:02:41 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 14:02:41 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 14:02:41 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 14:02:41 [notice] 1#1: start worker processes
+2024/01/16 14:02:41 [notice] 1#1: start worker process 20
+2024/01/16 14:02:41 [notice] 1#1: start worker process 21
+2024/01/16 14:13:06 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 14:13:06 [notice] 21#21: gracefully shutting down
+2024/01/16 14:13:06 [notice] 20#20: gracefully shutting down
+2024/01/16 14:13:06 [notice] 21#21: exiting
+2024/01/16 14:13:06 [notice] 20#20: exiting
+2024/01/16 14:13:06 [notice] 21#21: exit
+2024/01/16 14:13:06 [notice] 20#20: exit
+2024/01/16 14:13:06 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/16 14:13:06 [notice] 1#1: worker process 20 exited with code 0
+2024/01/16 14:13:06 [notice] 1#1: worker process 21 exited with code 0
+2024/01/16 14:13:06 [notice] 1#1: exit
+2024/01/16 14:13:24 [notice] 1#1: using the "epoll" event method
+2024/01/16 14:13:24 [notice] 1#1: nginx/1.25.3
+2024/01/16 14:13:24 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 14:13:24 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 14:13:24 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 14:13:24 [notice] 1#1: start worker processes
+2024/01/16 14:13:24 [notice] 1#1: start worker process 22
+2024/01/16 14:13:24 [notice] 1#1: start worker process 23
+2024/01/16 14:15:58 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 14:15:58 [notice] 23#23: gracefully shutting down
+2024/01/16 14:15:58 [notice] 23#23: exiting
+2024/01/16 14:15:58 [notice] 23#23: exit
+2024/01/16 14:15:58 [notice] 22#22: gracefully shutting down
+2024/01/16 14:15:58 [notice] 22#22: exiting
+2024/01/16 14:15:58 [notice] 22#22: exit
+2024/01/16 14:15:58 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/01/16 14:15:58 [notice] 1#1: worker process 23 exited with code 0
+2024/01/16 14:15:58 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/16 14:15:58 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/16 14:15:58 [notice] 1#1: worker process 22 exited with code 0
+2024/01/16 14:15:58 [notice] 1#1: exit
+2024/01/16 14:16:07 [notice] 1#1: using the "epoll" event method
+2024/01/16 14:16:07 [notice] 1#1: nginx/1.25.3
+2024/01/16 14:16:07 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 14:16:07 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 14:16:07 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 14:16:07 [notice] 1#1: start worker processes
+2024/01/16 14:16:07 [notice] 1#1: start worker process 22
+2024/01/16 14:16:07 [notice] 1#1: start worker process 23
+2024/01/16 14:16:21 [warn] 22#22: *3 an upstream response is buffered to a temporary file /var/cache/nginx/uwsgi_temp/2/00/0000000002 while reading upstream, client: 172.71.154.162, server: 127.0.0.1, request: "POST /admin/myApp/product/1/change/ HTTP/1.1", upstream: "uwsgi://192.168.176.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/1/change/"
+2024/01/16 14:37:21 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 14:37:21 [notice] 23#23: gracefully shutting down
+2024/01/16 14:37:21 [notice] 23#23: exiting
+2024/01/16 14:37:21 [notice] 23#23: exit
+2024/01/16 14:37:21 [notice] 22#22: gracefully shutting down
+2024/01/16 14:37:21 [notice] 22#22: exiting
+2024/01/16 14:37:21 [notice] 22#22: exit
+2024/01/16 14:37:21 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/16 14:37:21 [notice] 1#1: worker process 22 exited with code 0
+2024/01/16 14:37:21 [notice] 1#1: worker process 23 exited with code 0
+2024/01/16 14:37:21 [notice] 1#1: exit
+2024/01/16 14:38:26 [notice] 1#1: using the "epoll" event method
+2024/01/16 14:38:26 [notice] 1#1: nginx/1.25.3
+2024/01/16 14:38:26 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 14:38:26 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 14:38:26 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 14:38:26 [notice] 1#1: start worker processes
+2024/01/16 14:38:26 [notice] 1#1: start worker process 24
+2024/01/16 14:38:26 [notice] 1#1: start worker process 25
+2024/01/16 14:40:43 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 14:40:43 [notice] 24#24: gracefully shutting down
+2024/01/16 14:40:43 [notice] 24#24: exiting
+2024/01/16 14:40:43 [notice] 24#24: exit
+2024/01/16 14:40:43 [notice] 25#25: gracefully shutting down
+2024/01/16 14:40:43 [notice] 25#25: exiting
+2024/01/16 14:40:43 [notice] 25#25: exit
+2024/01/16 14:40:43 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2024/01/16 14:40:43 [notice] 1#1: worker process 24 exited with code 0
+2024/01/16 14:40:43 [notice] 1#1: worker process 25 exited with code 0
+2024/01/16 14:40:43 [notice] 1#1: exit
+2024/01/16 14:47:21 [notice] 1#1: using the "epoll" event method
+2024/01/16 14:47:21 [notice] 1#1: nginx/1.25.3
+2024/01/16 14:47:21 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 14:47:21 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 14:47:21 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 14:47:21 [notice] 1#1: start worker processes
+2024/01/16 14:47:21 [notice] 1#1: start worker process 20
+2024/01/16 14:47:21 [notice] 1#1: start worker process 21
+2024/01/16 14:48:38 [warn] 21#21: *1 an upstream response is buffered to a temporary file /var/cache/nginx/uwsgi_temp/3/00/0000000003 while reading upstream, client: 172.69.22.234, server: 127.0.0.1, request: "POST /admin/myApp/product/1/change/ HTTP/1.1", upstream: "uwsgi://172.22.0.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/1/change/"
+2024/01/16 14:50:36 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 14:50:36 [notice] 20#20: gracefully shutting down
+2024/01/16 14:50:36 [notice] 21#21: gracefully shutting down
+2024/01/16 14:50:36 [notice] 20#20: exiting
+2024/01/16 14:50:36 [notice] 21#21: exiting
+2024/01/16 14:50:36 [notice] 20#20: exit
+2024/01/16 14:50:36 [notice] 21#21: exit
+2024/01/16 14:50:36 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/16 14:50:36 [notice] 1#1: worker process 20 exited with code 0
+2024/01/16 14:50:36 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/16 14:50:36 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/16 14:50:36 [notice] 1#1: worker process 21 exited with code 0
+2024/01/16 14:50:36 [notice] 1#1: exit
+2024/01/16 16:00:18 [notice] 1#1: using the "epoll" event method
+2024/01/16 16:00:18 [notice] 1#1: nginx/1.25.3
+2024/01/16 16:00:18 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 16:00:18 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 16:00:18 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 16:00:18 [notice] 1#1: start worker processes
+2024/01/16 16:00:18 [notice] 1#1: start worker process 22
+2024/01/16 16:00:18 [notice] 1#1: start worker process 23
+2024/01/16 16:03:41 [warn] 23#23: *9 an upstream response is buffered to a temporary file /var/cache/nginx/uwsgi_temp/3/00/0000000003 while reading upstream, client: 172.69.23.55, server: 127.0.0.1, request: "POST /admin/myApp/product/1/change/ HTTP/1.1", upstream: "uwsgi://172.27.0.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/admin/myApp/product/1/change/"
+2024/01/16 16:11:54 [error] 23#23: *21 open() "/usr/share/nginx/html/static/images/swamp.png" failed (2: No such file or directory), client: 36.156.22.3, server: 127.0.0.1, request: "GET /static/images/swamp.png HTTP/1.1", host: "35.194.232.40"
+2024/01/16 16:18:18 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 16:18:18 [notice] 22#22: gracefully shutting down
+2024/01/16 16:18:18 [notice] 22#22: exiting
+2024/01/16 16:18:18 [notice] 22#22: exit
+2024/01/16 16:18:18 [notice] 23#23: gracefully shutting down
+2024/01/16 16:18:18 [notice] 23#23: exiting
+2024/01/16 16:18:18 [notice] 23#23: exit
+2024/01/16 16:18:19 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/16 16:18:19 [notice] 1#1: worker process 22 exited with code 0
+2024/01/16 16:18:19 [notice] 1#1: worker process 23 exited with code 0
+2024/01/16 16:18:19 [notice] 1#1: exit
+2024/01/16 16:18:42 [notice] 1#1: using the "epoll" event method
+2024/01/16 16:18:42 [notice] 1#1: nginx/1.25.3
+2024/01/16 16:18:42 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 16:18:42 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 16:18:42 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 16:18:42 [notice] 1#1: start worker processes
+2024/01/16 16:18:42 [notice] 1#1: start worker process 20
+2024/01/16 16:18:42 [notice] 1#1: start worker process 21
+2024/01/16 16:26:56 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 16:26:56 [notice] 20#20: gracefully shutting down
+2024/01/16 16:26:56 [notice] 21#21: gracefully shutting down
+2024/01/16 16:26:56 [notice] 20#20: exiting
+2024/01/16 16:26:56 [notice] 21#21: exiting
+2024/01/16 16:26:56 [notice] 21#21: exit
+2024/01/16 16:26:56 [notice] 20#20: exit
+2024/01/16 16:26:56 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/16 16:26:56 [notice] 1#1: worker process 21 exited with code 0
+2024/01/16 16:26:56 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/16 16:26:56 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/16 16:26:56 [notice] 1#1: worker process 20 exited with code 0
+2024/01/16 16:26:56 [notice] 1#1: exit
+2024/01/16 16:27:15 [notice] 1#1: using the "epoll" event method
+2024/01/16 16:27:15 [notice] 1#1: nginx/1.25.3
+2024/01/16 16:27:15 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 16:27:15 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 16:27:15 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 16:27:15 [notice] 1#1: start worker processes
+2024/01/16 16:27:15 [notice] 1#1: start worker process 21
+2024/01/16 16:27:15 [notice] 1#1: start worker process 22
+2024/01/16 16:40:10 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 16:40:10 [notice] 21#21: gracefully shutting down
+2024/01/16 16:40:10 [notice] 22#22: gracefully shutting down
+2024/01/16 16:40:10 [notice] 21#21: exiting
+2024/01/16 16:40:10 [notice] 22#22: exiting
+2024/01/16 16:40:10 [notice] 21#21: exit
+2024/01/16 16:40:10 [notice] 22#22: exit
+2024/01/16 16:40:10 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/16 16:40:10 [notice] 1#1: worker process 22 exited with code 0
+2024/01/16 16:40:10 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/16 16:40:10 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/16 16:40:10 [notice] 1#1: worker process 21 exited with code 0
+2024/01/16 16:40:10 [notice] 1#1: exit
+2024/01/16 16:40:16 [notice] 1#1: using the "epoll" event method
+2024/01/16 16:40:16 [notice] 1#1: nginx/1.25.3
+2024/01/16 16:40:16 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/16 16:40:16 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/16 16:40:16 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/16 16:40:16 [notice] 1#1: start worker processes
+2024/01/16 16:40:16 [notice] 1#1: start worker process 20
+2024/01/16 16:40:16 [notice] 1#1: start worker process 21
+2024/01/16 16:40:18 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/16 16:40:18 [notice] 20#20: gracefully shutting down
+2024/01/16 16:40:18 [notice] 20#20: exiting
+2024/01/16 16:40:18 [notice] 20#20: exit
+2024/01/16 16:40:18 [notice] 21#21: gracefully shutting down
+2024/01/16 16:40:18 [notice] 21#21: exiting
+2024/01/16 16:40:18 [notice] 21#21: exit
+2024/01/16 16:40:18 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/16 16:40:18 [notice] 1#1: worker process 21 exited with code 0
+2024/01/16 16:40:18 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/16 16:40:18 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/16 16:40:18 [notice] 1#1: worker process 20 exited with code 0
+2024/01/16 16:40:18 [notice] 1#1: exit
+2024/01/17 21:32:08 [notice] 1#1: using the "epoll" event method
+2024/01/17 21:32:08 [notice] 1#1: nginx/1.25.3
+2024/01/17 21:32:08 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/17 21:32:08 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/17 21:32:08 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/17 21:32:08 [notice] 1#1: start worker processes
+2024/01/17 21:32:08 [notice] 1#1: start worker process 21
+2024/01/17 21:32:08 [notice] 1#1: start worker process 22
+2024/01/17 21:39:09 [error] 21#21: *84 open() "/usr/share/nginx/html/static/images/swamp.png" failed (2: No such file or directory), client: 172.71.154.125, server: 127.0.0.1, request: "GET /static/images/swamp.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/17 21:51:43 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/17 21:51:43 [notice] 21#21: gracefully shutting down
+2024/01/17 21:51:43 [notice] 22#22: gracefully shutting down
+2024/01/17 21:51:43 [notice] 21#21: exiting
+2024/01/17 21:51:43 [notice] 21#21: exit
+2024/01/17 21:51:43 [notice] 22#22: exiting
+2024/01/17 21:51:43 [notice] 22#22: exit
+2024/01/17 21:51:43 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/17 21:51:43 [notice] 1#1: worker process 21 exited with code 0
+2024/01/17 21:51:43 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/17 21:51:43 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/17 21:51:43 [notice] 1#1: worker process 22 exited with code 0
+2024/01/17 21:51:43 [notice] 1#1: exit
+2024/01/17 22:23:56 [notice] 1#1: using the "epoll" event method
+2024/01/17 22:23:56 [notice] 1#1: nginx/1.25.3
+2024/01/17 22:23:56 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/17 22:23:56 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/17 22:23:56 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/17 22:23:56 [notice] 1#1: start worker processes
+2024/01/17 22:23:56 [notice] 1#1: start worker process 22
+2024/01/17 22:23:56 [notice] 1#1: start worker process 23
+2024/01/17 22:24:04 [error] 23#23: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.69.135.23, server: 127.0.0.1, request: "GET /price/ HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/17 22:24:15 [error] 23#23: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.69.135.23, server: 127.0.0.1, request: "GET /price/ HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/17 22:24:29 [error] 23#23: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.69.135.23, server: 127.0.0.1, request: "GET /price/ HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/17 22:24:33 [error] 23#23: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 172.69.135.23, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.144.2:8000", host: "site.howard7777.store"
+2024/01/17 22:31:45 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/17 22:31:45 [notice] 22#22: gracefully shutting down
+2024/01/17 22:31:45 [notice] 22#22: exiting
+2024/01/17 22:31:45 [notice] 22#22: exit
+2024/01/17 22:31:45 [notice] 23#23: gracefully shutting down
+2024/01/17 22:31:45 [notice] 23#23: exiting
+2024/01/17 22:31:45 [notice] 23#23: exit
+2024/01/17 22:31:45 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/17 22:31:45 [notice] 1#1: worker process 22 exited with code 0
+2024/01/17 22:31:45 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/17 22:31:45 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/01/17 22:31:45 [notice] 1#1: worker process 23 exited with code 0
+2024/01/17 22:31:45 [notice] 1#1: exit
+2024/01/17 22:35:57 [notice] 1#1: using the "epoll" event method
+2024/01/17 22:35:57 [notice] 1#1: nginx/1.25.3
+2024/01/17 22:35:57 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/17 22:35:57 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/17 22:35:57 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/17 22:35:57 [notice] 1#1: start worker processes
+2024/01/17 22:35:57 [notice] 1#1: start worker process 20
+2024/01/17 22:35:57 [notice] 1#1: start worker process 21
+2024/01/17 22:36:29 [error] 21#21: *2 connect() failed (111: Connection refused) while connecting to upstream, client: 45.79.172.21, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.192.2:8000", host: "35.194.232.40"
+2024/01/17 22:37:01 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/17 22:37:01 [notice] 20#20: gracefully shutting down
+2024/01/17 22:37:01 [notice] 21#21: gracefully shutting down
+2024/01/17 22:37:01 [notice] 20#20: exiting
+2024/01/17 22:37:01 [notice] 21#21: exiting
+2024/01/17 22:37:01 [notice] 20#20: exit
+2024/01/17 22:37:01 [notice] 21#21: exit
+2024/01/17 22:37:01 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/17 22:37:01 [notice] 1#1: worker process 20 exited with code 0
+2024/01/17 22:37:01 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/17 22:37:01 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/17 22:37:01 [notice] 1#1: worker process 21 exited with code 0
+2024/01/17 22:37:01 [notice] 1#1: exit
+2024/01/17 22:37:37 [notice] 1#1: using the "epoll" event method
+2024/01/17 22:37:37 [notice] 1#1: nginx/1.25.3
+2024/01/17 22:37:37 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/17 22:37:37 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/17 22:37:37 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/17 22:37:37 [notice] 1#1: start worker processes
+2024/01/17 22:37:37 [notice] 1#1: start worker process 22
+2024/01/17 22:37:37 [notice] 1#1: start worker process 23
+2024/01/17 22:40:01 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/17 22:40:01 [notice] 22#22: gracefully shutting down
+2024/01/17 22:40:01 [notice] 23#23: gracefully shutting down
+2024/01/17 22:40:01 [notice] 22#22: exiting
+2024/01/17 22:40:01 [notice] 23#23: exiting
+2024/01/17 22:40:01 [notice] 23#23: exit
+2024/01/17 22:40:01 [notice] 22#22: exit
+2024/01/17 22:40:01 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/01/17 22:40:01 [notice] 1#1: worker process 22 exited with code 0
+2024/01/17 22:40:01 [notice] 1#1: worker process 23 exited with code 0
+2024/01/17 22:40:01 [notice] 1#1: exit
+2024/01/17 22:40:16 [notice] 1#1: using the "epoll" event method
+2024/01/17 22:40:16 [notice] 1#1: nginx/1.25.3
+2024/01/17 22:40:16 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/17 22:40:16 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/17 22:40:16 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/17 22:40:16 [notice] 1#1: start worker processes
+2024/01/17 22:40:16 [notice] 1#1: start worker process 20
+2024/01/17 22:40:16 [notice] 1#1: start worker process 21
+2024/01/17 22:41:13 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/17 22:41:13 [notice] 20#20: gracefully shutting down
+2024/01/17 22:41:13 [notice] 21#21: gracefully shutting down
+2024/01/17 22:41:13 [notice] 20#20: exiting
+2024/01/17 22:41:13 [notice] 21#21: exiting
+2024/01/17 22:41:13 [notice] 20#20: exit
+2024/01/17 22:41:13 [notice] 21#21: exit
+2024/01/17 22:41:13 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/17 22:41:13 [notice] 1#1: worker process 20 exited with code 0
+2024/01/17 22:41:13 [notice] 1#1: worker process 21 exited with code 0
+2024/01/17 22:41:13 [notice] 1#1: exit
+2024/01/18 00:18:23 [notice] 1#1: using the "epoll" event method
+2024/01/18 00:18:23 [notice] 1#1: nginx/1.25.3
+2024/01/18 00:18:23 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/18 00:18:23 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/18 00:18:23 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/18 00:18:23 [notice] 1#1: start worker processes
+2024/01/18 00:18:23 [notice] 1#1: start worker process 20
+2024/01/18 00:18:23 [notice] 1#1: start worker process 21
+2024/01/18 00:19:23 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/18 00:19:23 [notice] 20#20: gracefully shutting down
+2024/01/18 00:19:23 [notice] 21#21: gracefully shutting down
+2024/01/18 00:19:23 [notice] 20#20: exiting
+2024/01/18 00:19:23 [notice] 21#21: exiting
+2024/01/18 00:19:23 [notice] 20#20: exit
+2024/01/18 00:19:23 [notice] 21#21: exit
+2024/01/18 00:19:23 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/18 00:19:23 [notice] 1#1: worker process 20 exited with code 0
+2024/01/18 00:19:23 [notice] 1#1: worker process 21 exited with code 0
+2024/01/18 00:19:23 [notice] 1#1: exit
+2024/01/18 00:19:46 [notice] 1#1: using the "epoll" event method
+2024/01/18 00:19:46 [notice] 1#1: nginx/1.25.3
+2024/01/18 00:19:46 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/18 00:19:46 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/18 00:19:46 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/18 00:19:46 [notice] 1#1: start worker processes
+2024/01/18 00:19:46 [notice] 1#1: start worker process 21
+2024/01/18 00:19:46 [notice] 1#1: start worker process 22
+2024/01/18 00:28:02 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/18 00:28:02 [notice] 21#21: gracefully shutting down
+2024/01/18 00:28:02 [notice] 21#21: exiting
+2024/01/18 00:28:02 [notice] 21#21: exit
+2024/01/18 00:28:02 [notice] 22#22: gracefully shutting down
+2024/01/18 00:28:02 [notice] 22#22: exiting
+2024/01/18 00:28:02 [notice] 22#22: exit
+2024/01/18 00:28:02 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/18 00:28:02 [notice] 1#1: worker process 21 exited with code 0
+2024/01/18 00:28:02 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/18 00:28:02 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/18 00:28:02 [notice] 1#1: worker process 22 exited with code 0
+2024/01/18 00:28:02 [notice] 1#1: exit
+2024/01/18 00:28:31 [notice] 1#1: using the "epoll" event method
+2024/01/18 00:28:31 [notice] 1#1: nginx/1.25.3
+2024/01/18 00:28:31 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/18 00:28:31 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/18 00:28:31 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/18 00:28:31 [notice] 1#1: start worker processes
+2024/01/18 00:28:31 [notice] 1#1: start worker process 20
+2024/01/18 00:28:31 [notice] 1#1: start worker process 21
+2024/01/18 00:30:19 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/18 00:30:19 [notice] 21#21: gracefully shutting down
+2024/01/18 00:30:19 [notice] 21#21: exiting
+2024/01/18 00:30:19 [notice] 21#21: exit
+2024/01/18 00:30:19 [notice] 20#20: gracefully shutting down
+2024/01/18 00:30:19 [notice] 20#20: exiting
+2024/01/18 00:30:19 [notice] 20#20: exit
+2024/01/18 00:30:19 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/18 00:30:19 [notice] 1#1: worker process 20 exited with code 0
+2024/01/18 00:30:19 [notice] 1#1: worker process 21 exited with code 0
+2024/01/18 00:30:19 [notice] 1#1: exit
+2024/01/18 00:30:43 [notice] 1#1: using the "epoll" event method
+2024/01/18 00:30:43 [notice] 1#1: nginx/1.25.3
+2024/01/18 00:30:43 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/18 00:30:43 [notice] 1#1: OS: Linux 5.10.0-26-cloud-amd64
+2024/01/18 00:30:43 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/18 00:30:43 [notice] 1#1: start worker processes
+2024/01/18 00:30:43 [notice] 1#1: start worker process 20
+2024/01/18 00:30:43 [notice] 1#1: start worker process 21
+2024/01/18 00:31:44 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/18 00:31:44 [notice] 20#20: gracefully shutting down
+2024/01/18 00:31:44 [notice] 21#21: gracefully shutting down
+2024/01/18 00:31:44 [notice] 21#21: exiting
+2024/01/18 00:31:44 [notice] 20#20: exiting
+2024/01/18 00:31:44 [notice] 21#21: exit
+2024/01/18 00:31:44 [notice] 20#20: exit
+2024/01/18 00:31:44 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/18 00:31:44 [notice] 1#1: worker process 20 exited with code 0
+2024/01/18 00:31:44 [notice] 1#1: worker process 21 exited with code 0
+2024/01/18 00:31:44 [notice] 1#1: exit
+2024/01/18 15:53:45 [notice] 1#1: using the "epoll" event method
+2024/01/18 15:53:45 [notice] 1#1: nginx/1.25.3
+2024/01/18 15:53:45 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/18 15:53:45 [notice] 1#1: OS: Linux 5.10.0-27-cloud-amd64
+2024/01/18 15:53:45 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/18 15:53:45 [notice] 1#1: start worker processes
+2024/01/18 15:53:45 [notice] 1#1: start worker process 20
+2024/01/18 15:53:45 [notice] 1#1: start worker process 21
+2024/01/18 15:55:59 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/18 15:55:59 [notice] 20#20: gracefully shutting down
+2024/01/18 15:55:59 [notice] 20#20: exiting
+2024/01/18 15:55:59 [notice] 20#20: exit
+2024/01/18 15:55:59 [notice] 21#21: gracefully shutting down
+2024/01/18 15:55:59 [notice] 21#21: exiting
+2024/01/18 15:55:59 [notice] 21#21: exit
+2024/01/18 15:55:59 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/18 15:55:59 [notice] 1#1: worker process 20 exited with code 0
+2024/01/18 15:55:59 [notice] 1#1: worker process 21 exited with code 0
+2024/01/18 15:55:59 [notice] 1#1: exit
+2024/01/19 11:02:37 [notice] 1#1: using the "epoll" event method
+2024/01/19 11:02:37 [notice] 1#1: nginx/1.25.3
+2024/01/19 11:02:37 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/19 11:02:37 [notice] 1#1: OS: Linux 5.10.0-27-cloud-amd64
+2024/01/19 11:02:37 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/19 11:02:37 [notice] 1#1: start worker processes
+2024/01/19 11:02:37 [notice] 1#1: start worker process 20
+2024/01/19 11:02:37 [notice] 1#1: start worker process 21
+2024/01/19 11:34:21 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/19 11:34:21 [notice] 20#20: gracefully shutting down
+2024/01/19 11:34:21 [notice] 21#21: gracefully shutting down
+2024/01/19 11:34:21 [notice] 20#20: exiting
+2024/01/19 11:34:21 [notice] 21#21: exiting
+2024/01/19 11:34:21 [notice] 21#21: exit
+2024/01/19 11:34:21 [notice] 20#20: exit
+2024/01/19 11:34:21 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/19 11:34:21 [notice] 1#1: worker process 20 exited with code 0
+2024/01/19 11:34:21 [notice] 1#1: worker process 21 exited with code 0
+2024/01/19 11:34:21 [notice] 1#1: exit
+2024/01/19 11:34:45 [notice] 1#1: using the "epoll" event method
+2024/01/19 11:34:45 [notice] 1#1: nginx/1.25.3
+2024/01/19 11:34:45 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/19 11:34:45 [notice] 1#1: OS: Linux 5.10.0-27-cloud-amd64
+2024/01/19 11:34:45 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/19 11:34:45 [notice] 1#1: start worker processes
+2024/01/19 11:34:45 [notice] 1#1: start worker process 20
+2024/01/19 11:34:45 [notice] 1#1: start worker process 21
+2024/01/19 12:07:53 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/19 12:07:53 [notice] 21#21: gracefully shutting down
+2024/01/19 12:07:53 [notice] 20#20: gracefully shutting down
+2024/01/19 12:07:53 [notice] 21#21: exiting
+2024/01/19 12:07:53 [notice] 20#20: exiting
+2024/01/19 12:07:53 [notice] 20#20: exit
+2024/01/19 12:07:53 [notice] 21#21: exit
+2024/01/19 12:07:53 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/19 12:07:53 [notice] 1#1: worker process 20 exited with code 0
+2024/01/19 12:07:53 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/19 12:07:53 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/19 12:07:53 [notice] 1#1: worker process 21 exited with code 0
+2024/01/19 12:07:53 [notice] 1#1: exit
+2024/01/19 12:09:01 [notice] 1#1: using the "epoll" event method
+2024/01/19 12:09:01 [notice] 1#1: nginx/1.25.3
+2024/01/19 12:09:01 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/19 12:09:01 [notice] 1#1: OS: Linux 5.10.0-27-cloud-amd64
+2024/01/19 12:09:01 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/19 12:09:01 [notice] 1#1: start worker processes
+2024/01/19 12:09:01 [notice] 1#1: start worker process 19
+2024/01/19 12:09:01 [notice] 1#1: start worker process 20
+2024/01/19 12:10:24 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/19 12:10:24 [notice] 20#20: gracefully shutting down
+2024/01/19 12:10:24 [notice] 19#19: gracefully shutting down
+2024/01/19 12:10:24 [notice] 19#19: exiting
+2024/01/19 12:10:24 [notice] 20#20: exiting
+2024/01/19 12:10:24 [notice] 20#20: exit
+2024/01/19 12:10:24 [notice] 19#19: exit
+2024/01/19 12:10:24 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/19 12:10:24 [notice] 1#1: worker process 20 exited with code 0
+2024/01/19 12:10:24 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/19 12:10:24 [notice] 1#1: signal 17 (SIGCHLD) received from 19
+2024/01/19 12:10:24 [notice] 1#1: worker process 19 exited with code 0
+2024/01/19 12:10:24 [notice] 1#1: exit
+2024/01/19 12:10:47 [notice] 1#1: using the "epoll" event method
+2024/01/19 12:10:47 [notice] 1#1: nginx/1.25.3
+2024/01/19 12:10:47 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/19 12:10:47 [notice] 1#1: OS: Linux 5.10.0-27-cloud-amd64
+2024/01/19 12:10:47 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/19 12:10:47 [notice] 1#1: start worker processes
+2024/01/19 12:10:47 [notice] 1#1: start worker process 20
+2024/01/19 12:10:47 [notice] 1#1: start worker process 21
+2024/01/19 12:10:52 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/19 12:10:52 [notice] 21#21: gracefully shutting down
+2024/01/19 12:10:52 [notice] 20#20: gracefully shutting down
+2024/01/19 12:10:52 [notice] 21#21: exiting
+2024/01/19 12:10:52 [notice] 20#20: exiting
+2024/01/19 12:10:52 [notice] 21#21: exit
+2024/01/19 12:10:52 [notice] 20#20: exit
+2024/01/19 12:10:52 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/19 12:10:52 [notice] 1#1: worker process 20 exited with code 0
+2024/01/19 12:10:52 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/19 12:10:52 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/19 12:10:52 [notice] 1#1: worker process 21 exited with code 0
+2024/01/19 12:10:52 [notice] 1#1: exit
+2024/01/19 12:11:12 [notice] 1#1: using the "epoll" event method
+2024/01/19 12:11:12 [notice] 1#1: nginx/1.25.3
+2024/01/19 12:11:12 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/19 12:11:12 [notice] 1#1: OS: Linux 5.10.0-27-cloud-amd64
+2024/01/19 12:11:12 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/19 12:11:12 [notice] 1#1: start worker processes
+2024/01/19 12:11:12 [notice] 1#1: start worker process 22
+2024/01/19 12:11:12 [notice] 1#1: start worker process 23
+2024/01/19 12:19:27 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/19 12:19:27 [notice] 22#22: gracefully shutting down
+2024/01/19 12:19:27 [notice] 22#22: exiting
+2024/01/19 12:19:27 [notice] 22#22: exit
+2024/01/19 12:19:27 [notice] 23#23: gracefully shutting down
+2024/01/19 12:19:27 [notice] 23#23: exiting
+2024/01/19 12:19:27 [notice] 23#23: exit
+2024/01/19 12:19:27 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/19 12:19:27 [notice] 1#1: worker process 22 exited with code 0
+2024/01/19 12:19:27 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/19 12:19:27 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/01/19 12:19:27 [notice] 1#1: worker process 23 exited with code 0
+2024/01/19 12:19:27 [notice] 1#1: exit
+2024/01/19 12:19:56 [notice] 1#1: using the "epoll" event method
+2024/01/19 12:19:56 [notice] 1#1: nginx/1.25.3
+2024/01/19 12:19:56 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/19 12:19:56 [notice] 1#1: OS: Linux 5.10.0-27-cloud-amd64
+2024/01/19 12:19:56 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/19 12:19:56 [notice] 1#1: start worker processes
+2024/01/19 12:19:56 [notice] 1#1: start worker process 22
+2024/01/19 12:19:56 [notice] 1#1: start worker process 23
+2024/01/19 12:20:19 [warn] 22#22: *1 an upstream response is buffered to a temporary file /var/cache/nginx/uwsgi_temp/1/00/0000000001 while reading upstream, client: 172.69.134.141, server: 127.0.0.1, request: "GET / HTTP/1.1", upstream: "uwsgi://192.168.192.2:8000", host: "site.howard7777.store"
+2024/01/19 12:37:48 [error] 23#23: *122 open() "/usr/share/nginx/html/static/images/swamp.png" failed (2: No such file or directory), client: 172.69.22.37, server: 127.0.0.1, request: "GET /static/images/swamp.png HTTP/1.1", host: "site.howard7777.store", referrer: "https://site.howard7777.store/"
+2024/01/19 13:18:55 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/19 13:18:55 [notice] 22#22: gracefully shutting down
+2024/01/19 13:18:55 [notice] 22#22: exiting
+2024/01/19 13:18:55 [notice] 22#22: exit
+2024/01/19 13:18:55 [notice] 23#23: gracefully shutting down
+2024/01/19 13:18:55 [notice] 23#23: exiting
+2024/01/19 13:18:55 [notice] 23#23: exit
+2024/01/19 13:18:55 [notice] 1#1: signal 17 (SIGCHLD) received from 23
+2024/01/19 13:18:55 [notice] 1#1: worker process 23 exited with code 0
+2024/01/19 13:18:55 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/19 13:18:55 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2024/01/19 13:18:55 [notice] 1#1: worker process 22 exited with code 0
+2024/01/19 13:18:55 [notice] 1#1: exit
+2024/01/19 13:19:32 [notice] 1#1: using the "epoll" event method
+2024/01/19 13:19:32 [notice] 1#1: nginx/1.25.3
+2024/01/19 13:19:32 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/19 13:19:32 [notice] 1#1: OS: Linux 5.10.0-27-cloud-amd64
+2024/01/19 13:19:32 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/19 13:19:32 [notice] 1#1: start worker processes
+2024/01/19 13:19:32 [notice] 1#1: start worker process 20
+2024/01/19 13:19:32 [notice] 1#1: start worker process 21
+2024/01/19 13:36:24 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2024/01/19 13:36:24 [notice] 20#20: gracefully shutting down
+2024/01/19 13:36:24 [notice] 20#20: exiting
+2024/01/19 13:36:24 [notice] 20#20: exit
+2024/01/19 13:36:24 [notice] 21#21: gracefully shutting down
+2024/01/19 13:36:24 [notice] 21#21: exiting
+2024/01/19 13:36:24 [notice] 21#21: exit
+2024/01/19 13:36:24 [notice] 1#1: signal 17 (SIGCHLD) received from 20
+2024/01/19 13:36:24 [notice] 1#1: worker process 20 exited with code 0
+2024/01/19 13:36:24 [notice] 1#1: signal 29 (SIGIO) received
+2024/01/19 13:36:24 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2024/01/19 13:36:24 [notice] 1#1: worker process 21 exited with code 0
+2024/01/19 13:36:24 [notice] 1#1: exit
+2024/01/19 13:36:55 [notice] 1#1: using the "epoll" event method
+2024/01/19 13:36:55 [notice] 1#1: nginx/1.25.3
+2024/01/19 13:36:55 [notice] 1#1: built by gcc 12.2.0 (Debian 12.2.0-14) 
+2024/01/19 13:36:55 [notice] 1#1: OS: Linux 5.10.0-27-cloud-amd64
+2024/01/19 13:36:55 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2024/01/19 13:36:55 [notice] 1#1: start worker processes
+2024/01/19 13:36:55 [notice] 1#1: start worker process 21
+2024/01/19 13:36:55 [notice] 1#1: start worker process 22
+2024/01/19 15:33:52 [error] 22#22: *38 open() "/usr/share/nginx/html/static/images/swamp.png" failed (2: No such file or directory), client: 218.95.226.153, server: 127.0.0.1, request: "GET /static/images/swamp.png HTTP/1.1", host: "34.81.160.254"
+2024/01/19 16:03:26 [error] 22#22: *46 open() "/usr/share/nginx/html/static/images/swamp.png" failed (2: No such file or directory), client: 172.71.158.198, server: 127.0.0.1, request: "GET /static/images/swamp.png HTTP/1.1", host: "site.howard7777.store"

@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load static %}
+{% block mainBody %}
+<!-- breadcrumbs -->
+	<div class="agileits_breadcrumbs">
+		<div class="container">
+			<div class="agileits_breadcrumbs_left">
+				<ul>
+					<li><a href="{% url 'gameApp:game_list' %}">Home</a><i>|</i></li>
+					<li>Single</li>
+				</ul>
+			</div>
+			<div class="agileits_breadcrumbs_right">
+				<h3>Single</h3>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //breadcrumbs -->
+<!-- single -->
+	<div class="blog">
+		<div class="container">
+			<div class="col-md-7 wthree_blog_left">
+				<div class="wthree_blog_left_grid">
+					<div class="wthree_blog_left_grid_slider">
+						<img src={{game.picture_game}} alt=" " class="img-responsive" />
+					</div>
+					<h4>Games Zone</h4>
+					<h3>{{ game.name }}</h3>
+					<ul>
+						{% for platform in platforms %}
+						<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a href="#">{{platform.name}}</a><i>|</i></li>
+						{% empty %}   
+    					<li>Sorry, no platform。</li> 
+    					{% endfor %}
+						<li><span class="glyphicon glyphicon-heart" aria-hidden="true"></span><a href="#">{{star}}</a><i>|</i></li>
+						{% comment %} <li><span class="glyphicon glyphicon-tag" aria-hidden="true"></span><a href="#">5</a><i>|</i></li>
+						<li><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Voluptatibus</li> {% endcomment %}
+					</ul>
+					<p>{{ game.introduction }}</p>
+				</div>
+				<div class="agileits_share">
+					<ul>
+						<li><a class="linkedin" href="#"></a></li>
+						<li><a class="google" href="#"></a></li>
+						<li><a class="twitter" href="#"></a></li>
+						<li><a class="facebook" href="#"></a></li>
+					</ul>
+				</div>
+				
+				<div class="agileits_reply">
+					<h3>Leave a reply</h3>
+					<form action="{% url 'gameApp:game_detail' game.pk %}" method="post">
+						{% csrf_token %}
+						{% comment %} <input type="text" name="Name" placeholder="Name" required="">
+						<input type="email" name="Email" placeholder="Email" required=""> {% endcomment %}
+						<label for="customRange2" class="form-label">評分1~5</label>
+						<input type="range" class="form-range" name="score" min="0" max="5" id="customRange2">
+						{% comment %} <input type="floatformat" name="star" placeholder="1~5分" required=""> {% endcomment %}
+						<textarea name="Message" placeholder="Type your comment..." required="">{{comment}}</textarea>
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+				{% comment %} <h3>評論區</h3>
+				{% for comment in comments %}
+				<div class="blog-text-w3ls item_info">
+					<div>
+						<ul>
+							<li><a href="#"><i class="glyphicon glyphicon-user"></i>{{comment.user}}</a></li>
+							<li><i class="glyphicon glyphicon-calendar"></i>{{comment.dt | date:'Y-m-d H:i'}}</li>
+							<li><a href="{% url 'gameApp:commentlike' comment.id game.id %}"><i class="glyphicon glyphicon-heart"></i>{{comment.get_commentlike_count}}</a></li>
+						</ul>				
+					 </div>
+					 <p>{{comment.context}}</p>
+				</div>
+				{% empty %}
+				<div class="blog-text-w3ls item_info">   
+				<li>Sorry, no comment。</li> 
+				</div>
+				{% endfor %} {% endcomment %}
+				<h3>評論區</h3>
+				<div class="scrollable" id="scrollable">
+					{% for comment in comments %}
+					<div class="blog-text-w3ls item_info comment">
+						<div>
+							<ul>
+								<li><a href="#"><i class="glyphicon glyphicon-user"></i>{{ comment.user }}</a></li>
+								<li><i class="glyphicon glyphicon-calendar"></i>{{ comment.dt|date:"Y-m-d H:i" }}</li>
+								<li><a href="{% url 'gameApp:commentlike' comment.id game.id %}"><i class="glyphicon glyphicon-heart"></i>{{ comment.get_commentlike_count }}</a></li>
+							</ul>				
+						</div>
+						<p>{{ comment.context }}</p>
+					</div>
+					{% empty %}
+					<div class="blog-text-w3ls item_info comment">   
+						<li>Sorry, no comment。</li> 
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="col-md-5 wthree_blog_right">
+				<div class="w3ls_search">
+					<form action="{% url 'gameApp:trendsgame' %}" method="post">
+						{% csrf_token %}
+						<input type="text" name="Search" placeholder="Search on our platform" required="">
+						<input type="submit" value=" ">
+					</form>
+				</div>
+				<div class="w3l_categories">
+					<h3>Categories</h3>
+					<ul>
+						{% for game_type in game_types %}
+						<li>{{game_type.typename}}</a></li>
+						{% empty %}   
+    					<li>Sorry, no game_type。</li> 
+    					{% endfor %}
+						<li>{{classification}}</a></li>
+					</ul>
+				</div>
+				
+				<div class="w3l_archives">
+					<h3>發佈時間</h3>
+					<ul>
+						<li>{{release_date}}</li>
+					</ul>
+				</div>
+				<div class="w3l_archives">
+					<h3>遊戲下載區</h3>
+					<ul>
+						<li><a href={{game.url_address}}>載點</li>
+					</ul>
+				</div>
+				<div class="w3agile_flickr_posts">
+					<h3>Recommand Posts</h3>
+					{% for recommand in recommands %}
+					<div class="w3agile_flickr_post_left">
+						<a href="{% url 'gameApp:game_detail' recommand.pk %}"><img src={{recommand.picture_game}} alt=" " class="img-responsive" /></a>
+					</div>
+					{% empty %}   
+					<li>Sorry, no recommands</li> 
+					{% endfor %}
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //single -->	
+{% endblock mainBody %}

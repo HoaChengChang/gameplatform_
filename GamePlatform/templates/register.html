@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block mainBody %}
+{% load static %}
+	<div style="display: flex;justify-content: center;align-items: center;height: 100%; margin:100px;">
+		<form action="{% url 'gameApp:register' %}" method="post", enctype="multipart/form-data">
+            {% csrf_token %}
+            <div style="color:red;">
+                {{ errors }}
+            </div>
+            <label for="username">帳號:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+    
+            <label for="password1">密碼:</label><br>
+            <input type="password" id="password1" name="password1" required><br><br>
+
+            <label for="password2">驗證密碼:</label><br>
+            <input type="password" id="password2" name="password2" required><br><br>
+    
+            <label for="gender">性別:</label><br>
+            <select id="gender" name="gender" required>
+                <option value="0">男</option>
+                <option value="1">女</option>
+            </select><br><br>
+    
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+    
+            <label for="phone">手機號碼:</label><br>
+            <input type="tel" id="phone" name="phone"><br><br>
+    
+            <label for="birthday">生日:</label><br>
+            <input type="date" id="birthday" name="birthday" required><br><br>
+
+            <label for="icon">上傳頭像:</label><br>
+            <input type="file" id="icon" name="icon"><br><br>
+
+            <input type="submit" value="Register">
+            <a href="/signin">返回</a>
+		</form>
+	</div>
+{% endblock mainBody %}

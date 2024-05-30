@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block mainBody %}
+<style>
+    .verification-container {
+        max-width: 600px;
+        margin: 30px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+    .verification-container h2 {
+        margin-bottom: 20px;
+    }
+    .verification-container input[type="text"] {
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .verification-container button {
+        padding: 10px 20px;
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>
+
+<div class="verification-container">
+    <h2>已將驗證碼寄送到您的註冊信箱</h2>
+    <form method="post" action="{% url 'gameApp:emailverify' %}">
+        {% csrf_token %}
+        <input type="text" name="verification_code" placeholder="驗證碼" required>
+        <br>
+        <button type="submit">提交</button>
+    </form>
+</div>
+{% endblock mainBody %}

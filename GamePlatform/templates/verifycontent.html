@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>驗證碼</title>
+    <style>
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+            font-size: 16px;
+            color: #333333;
+        }
+        .code {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>您的驗證碼</h1>
+        </div>
+        <div class="content">
+            <p>您好，</p>
+            <p>感謝您使用GameZone。我們收到您的郵箱驗證請求。以下是您的驗證碼：</p>
+            <div class="code">{{ verification_code }}</div>
+            <p>如果您沒有發起此請求，請忽略此郵件。</p>
+        </div>
+        <div class="footer">
+            <p>此郵件由系統自動發送，請勿回覆。</p>
+        </div>
+    </div>
+</body>
+</html>

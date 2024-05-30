@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block mainBody %}
+<!-- new games -->
+<div class="new-w3-agile">
+	<div class="container">
+		<h3>{{game_type.typename}}</h3>
+		{% for game in games_list %}   
+    	<div class="col-md-3 new-grid-w3l view view-eighth">
+			<img loading="lazy" src={{game.picture_game}} alt=" " />
+			<div class="mask">
+				<a href="{% url 'gameApp:game_detail' game.pk %}"><h4>Click here</h4></a>
+				<p>To learn more about this</p>
+			</div>
+		</div>
+    	{% empty %}   
+    	<li>Sorry, no game。</li> 
+    	{% endfor %}
+		<div class="clearfix"></div>
+	</div>
+</div>
+<!-- //new games-->
+{% endblock mainBody %}

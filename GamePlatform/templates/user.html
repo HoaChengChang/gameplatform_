@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block mainBody %}
+{% load static %}
+
+<style>
+    .profile-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .profile-header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .profile-header img {
+        border-radius: 50%;
+        max-width: 150px;
+        height: auto;
+    }
+    .profile-info {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile-info p {
+        margin: 10px 0;
+        font-size: 1.1em;
+        width: 100%;
+        padding: 10px 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #ffffff;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+    }
+    .profile-info strong {
+        font-weight: 600;
+    }
+</style>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <img src="{{ icon.url }}" alt="User Icon">
+        <h2>{{ username }}</h2>
+    </div>
+    <div class="profile-info">
+        <p><strong>Gender:</strong> <span>{% if gender == 0 %}男{% elif gender == 1 %}女{% else %}未知{% endif %}</span></p>
+        <p><strong>Phone:</strong> <span>{{ phone }}</span></p>
+        <p><strong>Email:</strong> <span>{{ email }}</span></p>
+        <p><strong>Email Verified:</strong> 
+            {% if emailVerify != "已驗證" %}
+                <a href="{% url 'gameApp:emailverify' %}">驗證郵箱</a>
+            {% else %}
+                已驗證
+            {% endif %}
+        </p>
+    </div>
+</div>
+
+{% endblock mainBody %}
