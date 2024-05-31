@@ -1,13 +1,10 @@
 from django.db import models
 from django.db.models import F, Q
 from django.contrib.auth.models import AbstractUser
-from uuid import uuid4
-import os
+from gameApp.customize import icon_rename
+
+
 #資料庫設計：皓程
-def icon_rename(instance, filename):
-    ext = filename.split('.')[-1]
-    filename = f"{uuid4().hex}.{ext}"
-    return os.path.join('media/icon', filename)
 
 # Create your models here.
 class User(AbstractUser):
@@ -32,7 +29,7 @@ class User(AbstractUser):
     )
     phone = models.CharField(max_length=11, null=True, default=None, verbose_name="手機號碼")
     gender = models.IntegerField(choices=SEX_CHOICES, default=0, verbose_name="性別")
-    icon = models.ImageField(upload_to=icon_rename, default="media/icon/default.jpg", verbose_name="頭貼")
+    icon = models.ImageField(upload_to=icon_rename, default="media/icon/default.png", verbose_name="頭貼")
     birthday = models.DateField(null=True, blank=True, verbose_name="生日")
     emailverify = models.CharField(max_length=6, default="0", verbose_name="email驗證狀態")
 

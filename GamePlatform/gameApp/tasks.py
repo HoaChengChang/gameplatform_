@@ -45,7 +45,6 @@ def save_to_database(data_list : list = None):  #皓程
     result_platform = [GamePlatformRelation(game = game, platform = platform) for game in saved_games]
     
     #game_type from char to object
-    game_type_list = []
     result_GameTypeRelation = []
     for game in saved_games:
         if len(game.game_type_tmp.split(',')) == 1:

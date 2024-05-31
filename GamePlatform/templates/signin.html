@@ -5,7 +5,7 @@
 	<div style="display: flex;justify-content: center;align-items: center;height: 100%; margin:200px;">
 		<form action="{% url 'gameApp:signin' %}" method="post">
 			{% csrf_token %}
-<!--			<input type="hidden" name="next" value="{{ next }}">-->
+			<input type="hidden" name="next" value="{{ next }}">
 <!--			<input type="hidden" name="message" value="{{ message }}">-->
 			<input type="text" placeholder="username" name="username" value><br>
 			<input type="password" placeholder="password" name="password"><br>
