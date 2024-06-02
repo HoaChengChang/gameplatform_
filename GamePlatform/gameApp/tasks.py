@@ -46,15 +46,11 @@ def save_to_database(data_list : list = None):  #皓程
     
     #game_type from char to object
     game_type_list = []
-    game_list = []
     result_GameTypeRelation = []
     for game in saved_games:
         if len(game.game_type_tmp.split(',')) == 1:
             game_type, _ = GameType.objects.get_or_create(typename = game.game_type_tmp)
-            game_type_list.append(game_type)
-            game_list.append(game)
-            for index, game in enumerate(game_list):
-                result_GameTypeRelation.append(GameTypeRelation(game = game, game_type = game_type_list[index]))
+            result_GameTypeRelation.append(GameTypeRelation(game = game, game_type = game_type))
         else:
             game_type_list = [GameType.objects.get_or_create(typename = game_type)[0] 
                               for game_type in game.game_type_tmp.split(',')]
@@ -70,10 +66,11 @@ def megagames():
     save_to_database(results)
 
 def oceanofGames():
-    from gameApp.crawler.Ocean import OceanOfGames
-    results = OceanOfGames()
-    save_to_database(results)
     pass
+    # from gameApp.crawler.Ocean import OceanOfGames
+    # results = OceanOfGames()
+    # save_to_database(results)
+
     
 def C():
     try:

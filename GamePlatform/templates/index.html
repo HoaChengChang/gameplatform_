@@ -51,7 +51,7 @@
 						<li class="hover-effect"><a href="{% url 'gameApp:game_list' %}">Home</a></li>
 						<li class="hover-effect active"><a href="{% url 'gameApp:about' %}">About</a></li>
 						<li class="hover-effect"><a href="{% url 'gameApp:games' %}">Games</a></li>
-						<li class="hover-effect"><a href="gameApp:commentarea">Comment Area</a></li>
+						<li class="hover-effect"><a href="{% url 'gameApp:commentarea' %}">Comment Area</a></li>
 						{% comment %} <li class="hover-effect"><a href="{% url 'gameApp:contact' %}">Contact</a></li> {% endcomment %}
 						{% if check %}
 						<li class="hover-effect"><a href="{% url 'gameApp:signin' %}">Sign Out</a></li>

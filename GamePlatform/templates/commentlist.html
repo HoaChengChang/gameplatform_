@@ -1,0 +1,19 @@
+{% for comment in comments %}
+<div class="blog1-w3ls">
+    <div class="col-md-15 blog-text-w3ls">
+        <div class="item_info">
+            <ul>
+                <li><a href="#"><i class="glyphicon glyphicon-user"></i>{{ comment.user.username }}</a></li>
+                <li><i class="glyphicon glyphicon-calendar"></i>{{ comment.dt }}</li>
+                <li><a href="{% url 'gameApp:comment_review' comment.pk %}"><i class="glyphicon glyphicon-comment"></i>{{ comment.review.all|length }}</a></li>
+                <li><a href="{% url 'gameApp:commentarea_like' comment.pk %}"><i class="glyphicon glyphicon-heart"></i>{{ comment.get_commentlike_count }}</a></li>
+            </ul>
+        </div>
+        <p>{{ comment.context }}</p>
+        <a href="{% url 'gameApp:comment_review' comment.pk %}" class="blog-read">Read More</a>
+    </div>
+    <div class="clearfix"></div>
+</div>
+{% empty %}
+<li>Sorry, no comments.</li>
+{% endfor %}

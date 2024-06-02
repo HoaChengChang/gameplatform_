@@ -88,4 +88,4 @@ def Crawl_megagames():  #皓程
         finally:
             browser.quit()
         #該頁處理完，先將資料存入資料庫
-    return data_list
+        return data_list
