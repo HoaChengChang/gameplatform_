@@ -72,7 +72,7 @@ class Classification(models.Model):
 
 class GamePlatform(models.Model):
     name = models.CharField(max_length=50,null=False,blank=False)
-    loge_picture = models.TextField() #ImageField(upload_to = "GamePlatform_logo" ,default="logo/default.jpg")
+    loge_picture = models.TextField() 
     introduction = models.TextField()
     
     class Meta:
@@ -109,7 +109,8 @@ class Game(models.Model):
     picture_game = models.CharField(max_length=250,null=False,blank=False)
     url_address = models.CharField(max_length=250,null=False,blank=False)
     game_type_tmp = models.CharField(max_length=50,null=False,blank=False)
-    
+    star_count = models.FloatField(default=0)
+
     @property
     def get_classification_display(self):
         return dict(LEVEL_CHOICES).get(self.game_classification.class_name, 'Unknown')
@@ -150,7 +151,68 @@ class Comment(models.Model):
 
     class Meta:
         db_table='Comment'
-        verbose_name='評論區'
+        verbose_name='遊戲評論區'
+        verbose_name_plural=verbose_name
+    def __str__(self):
+        return '%s' %self.game.name
+    
+class CommentArea(models.Model):
+    user = models.ForeignKey(
+        to='User',  
+        db_constraint=False,  
+        related_name='comments_area',  
+        on_delete=models.CASCADE,
+    )
+    comment_like = models.ManyToManyField(
+        to='User',  
+        through='CommentAreaUserRelation',  
+        related_name='like_area',  
+    )
+    context = models.TextField()
+    dt = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def get_commentlike_count(self):
+        if self.comment_like.count() == None:
+            return 0
+        return self.comment_like.count()
+
+    class Meta:
+        db_table='CommentArea'
+        verbose_name='平台評論區'
+        verbose_name_plural=verbose_name
+    def __str__(self):
+        return '%s' %self.game.name
+    
+class CommentAreaReview(models.Model):
+    user = models.ForeignKey(
+        to='User',  
+        db_constraint=False,  
+        related_name='comments_review',  
+        on_delete=models.CASCADE,
+    )
+    comment_review_like = models.ManyToManyField(
+        to='User',  
+        through='CommentAreaReviewUserRelation',  
+        related_name='like_review',  
+    )
+    Comment = models.ForeignKey(
+        to='CommentArea',  
+        related_name='review',
+        on_delete=models.CASCADE,  
+    )
+    context = models.TextField()
+    dt = models.DateTimeField(auto_now_add=True)
+
+    @property
+    def get_commentlike_count(self):
+        if self.comment_review_like.count() == None:
+            return 0
+        return self.comment_review_like.count()
+
+    class Meta:
+        db_table='CommentAreaAbout'
+        verbose_name='評論研討'
         verbose_name_plural=verbose_name
     def __str__(self):
         return '%s' %self.game.name
@@ -167,3 +229,10 @@ class CommentUserRelation(models.Model):
     comment = models.ForeignKey(Comment, null = True, on_delete=models.SET_NULL)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+class CommentAreaUserRelation(models.Model):
+    comment = models.ForeignKey(CommentArea, null = True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class CommentAreaReviewUserRelation(models.Model):
+    comment = models.ForeignKey(CommentAreaReview, null = True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)    
