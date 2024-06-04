@@ -11,6 +11,9 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .emailverify import send_verify_code
 from django.http import JsonResponse
 from django.core.paginator import Paginator
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
 
 class Signin(View):#宗錡、皓程
     def get(self, request):
@@ -331,3 +334,14 @@ class CommentAreaReviewLike(View): #皓程
             comment.save()
             return redirect(reverse("gameApp:comment_review",kwargs={'pk' : pk}))
         return redirect(reverse("gameApp:signin"))
+
+def sendmessage(request):
+    if request.user.is_authenticated:
+        user = User.objects.get(username = request.user.username)
+        email =user.email
+        subject = request.POST.get('Subject','')
+        message = request.POST.get('Message','')
+        send_mail(subject,message,email,settings.ADMINS)
+        messages.success(request,"訊息成功寄出")
+        return redirect(reverse("gameApp:about"))
+    return redirect(reverse("gameApp:signin"))

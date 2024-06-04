@@ -88,13 +88,10 @@ def D():
     finally:
         pass
 
-def E():
-    try:
-        for _ in range(20):
-            print("E")
-            time.sleep(1)
-    finally:
-        pass
+def battlenetgames():
+    from gameApp.crawler.battlenet import get_battle
+    results = get_battle()
+    save_to_database(results)
 
 
 class Crawlfactory:
@@ -141,7 +138,7 @@ def work_chain():
     # )
     
     tasks = Crawlfactory(2)#chrome_browser,
-    tasks.add_tasks([megagames,oceanofGames,C,D,E])
+    tasks.add_tasks([megagames,oceanofGames,C,D,battlenetgames])
     tasks.start_processing()
     # task_chain = chain(
     #     MegaGames.s(),
