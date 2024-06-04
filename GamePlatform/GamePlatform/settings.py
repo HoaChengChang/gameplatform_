@@ -39,6 +39,8 @@ ADMINS = (
 # Application definition
 APPEND_SLASH = True
 
+LOGIN_URL = '/signin/'
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",

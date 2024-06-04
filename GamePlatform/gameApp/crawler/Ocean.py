@@ -6,16 +6,18 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 import time
-import pandas as pd
 
 
 def crawl():
+    from gameApp.models import Game
     games = []
+    done=False
+    # driver = webdriver.Remote(
+    #     command_executor='http://125.229.236.88:55444/wd/hub',
+    #     options=webdriver.ChromeOptions()
+    # )
+    driver = webdriver.Chrome()
     try:
-        driver = webdriver.Remote(
-            command_executor='http://125.229.236.88:55444/wd/hub',
-            options=webdriver.ChromeOptions()
-        )
         driver.get("https://oceanofgames.com/")
         gen = {"Action": "動作", "Adventure": "冒險", "Arcade": "大型電玩", "Fighting": "格鬥", "Horror": "恐怖",
                "Puzzle": "益智", "Racing": "駕駛", "Shooting Games": "射擊", "Simulation": "模擬", "Sports": "體育",
@@ -82,6 +84,12 @@ def crawl():
                         print(req)  # 系統需求
                         game["hardware_need"] = req
                         break
+                game_from_db = Game.objects.filter(name=game["game_name"], url_address=game["url_address"])
+                if game_from_db.exists():
+                    driver.quit()
+                    done=True
+                    print("沒有新遊戲")
+                    return games, done
                 games.append(game)
                 print()
                 driver.back()
@@ -92,11 +100,14 @@ def crawl():
                 pass
     finally:
         driver.quit()
-        return games
+        return games, done
 
 
 def OceanOfGames():
-    games: list = crawl()
+    games, done = crawl()
+    print(done)
     while not games:
-        crawl()
-    return games
+        if not done:
+            crawl()
+        else:
+            return games
