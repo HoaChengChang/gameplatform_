@@ -213,7 +213,7 @@ def gamedata(url, IsData='Project'):
     if IsData == 'Project':
         return dict(game_name=AppName,
             introduction=Game_Review,
-            hardware_or_fileinfo=Spec,#
+            hardware_need=Spec,
             platform=['STEAM'],
             type=Types,
             release_date=ReleaseDate,
