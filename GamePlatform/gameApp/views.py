@@ -17,7 +17,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from gameApp.customize import save_message_to_session
+from gameApp.tasks import work_chain
 
+def test(request):
+    work_chain()
+    return HttpResponse("compelet")
 
 class Signin(View):#宗錡、皓程
 
@@ -29,9 +33,6 @@ class Signin(View):#宗錡、皓程
         if request.user.is_authenticated:
             logout(request)
             return redirect(reverse("gameApp:game_list"))
-        form = SigninForm()
-        return render(request,"signin.html", 
-                      {'form':form,"latest_games":latest_game})
         next_url = request.GET.get('next', reverse("gameApp:game_list"))
         return render(request,"signin.html",  {"next": next_url, "latest_games":self.latest_game})
 
@@ -42,8 +43,6 @@ class Signin(View):#宗錡、皓程
             password = form.cleaned_data.get('password')
             user = authenticate(request, username = username, password = password)
             if user is not None:
-                login(request, user)
-                return redirect("gameApp:game_list")
                 login(request, user)
                 next_url = request.POST.get('next',reverse("gameApp:game_list"))
                 return redirect(next_url)
@@ -187,7 +186,6 @@ class GameDetail(View): #皓程
             "comments" : comments,
             "recommands" : recommand,
             "latest_games" : latest_game,
-            "comment" : comment
         }
         if request.user.is_authenticated:
             context["check"] = 1
@@ -274,7 +272,7 @@ class CommentSite(View):#皓程
         user = get_object_or_404(User, username = request.user.username)
         CommentArea.objects.create(user = user,context = context)
         return redirect(reverse("gameApp:commentarea"))
-    
+
 class CommentReview(View):#皓程
     def get(self, request, pk):
         latest_games = Game.objects.all().order_by('-release_date')[:16]

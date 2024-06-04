@@ -21,6 +21,7 @@ urlpatterns = [
     path("user/", views.UserSpace.as_view(), name="user"),
     path("emailverify/", views.EmailVerify.as_view(), name="emailverify"),
     path("send_message/", views.sendmessage, name="send_message"),
+    path("test/", views.test)
 ]
 
 # if settings.DEBUG is False:  不要開 不使用這個的話會抓不到media路徑!!

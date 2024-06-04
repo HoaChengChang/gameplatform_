@@ -3,7 +3,6 @@ import time
 import datetime
 import threading
 import queue
-
 def save_to_database(data_list : list = None):  #皓程
     from gameApp.models import Game,GamePlatform,Classification,GameType,GamePlatformRelation,GameTypeRelation
     if not data_list:
@@ -65,10 +64,9 @@ def megagames():
     save_to_database(results)
 
 def oceanofGames():
-    pass
-    # from gameApp.crawler.Ocean import OceanOfGames
-    # results = OceanOfGames()
-    # save_to_database(results)
+    from gameApp.crawler.Ocean import OceanOfGames
+    results = OceanOfGames()
+    save_to_database(results)
 
     
 def C():
@@ -136,7 +134,8 @@ def work_chain():
     # )
     
     tasks = Crawlfactory(2)#chrome_browser,
-    tasks.add_tasks([megagames,oceanofGames,C,D,battlenetgames])
+    # tasks.add_tasks([megagames,oceanofGames,C,D,battlenetgames])
+    tasks.add_tasks([oceanofGames])
     tasks.start_processing()
     # task_chain = chain(
     #     MegaGames.s(),

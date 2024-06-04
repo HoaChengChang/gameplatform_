@@ -1,5 +1,4 @@
 from typing import Dict, Any
-
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
@@ -11,7 +10,6 @@ import time
 def crawl():
     from gameApp.models import Game
     games = []
-    done=False
     # driver = webdriver.Remote(
     #     command_executor='http://125.229.236.88:55444/wd/hub',
     #     options=webdriver.ChromeOptions()
@@ -22,8 +20,7 @@ def crawl():
         gen = {"Action": "動作", "Adventure": "冒險", "Arcade": "大型電玩", "Fighting": "格鬥", "Horror": "恐怖",
                "Puzzle": "益智", "Racing": "駕駛", "Shooting Games": "射擊", "Simulation": "模擬", "Sports": "體育",
                "War": "戰略", "Strategy": "戰略", "Mystery": "冒險", "Fantasy": "冒險", "Sci Fi": "冒險", "RPG": "RPG",
-               "Survival": "模擬", "Casual": "模擬", "Indie": "獨立", "Reviews": "not in type",
-               "Trainer": "not in type"}
+               "Survival": "模擬", "Casual": "模擬", "Indie": "獨立", "Reviews": "not in type", "Trainer": "not in type"}
         while len(games) <= 20:
             WebDriverWait(driver, 5).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div.post-details')))
             contents = driver.find_element(By.XPATH,
@@ -84,7 +81,7 @@ def crawl():
                         print(req)  # 系統需求
                         game["hardware_need"] = req
                         break
-                game_from_db = Game.objects.filter(name=game["game_name"], url_address=game["url_address"])
+                game_from_db = Game.objects.filter(name=game["game_name"], url_address=game["web_address"])
                 if game_from_db.exists():
                     driver.quit()
                     done=True
@@ -100,14 +97,17 @@ def crawl():
                 pass
     finally:
         driver.quit()
+        done = False
         return games, done
 
 
 def OceanOfGames():
     games, done = crawl()
-    print(done)
+    print(len(games), done)
     while not games:
         if not done:
             crawl()
+            print(done)
         else:
             return games
+    return games
