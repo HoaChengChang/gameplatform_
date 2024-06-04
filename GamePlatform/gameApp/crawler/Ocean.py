@@ -41,10 +41,10 @@ def crawl():
                 print(c_a.get_attribute("title"))  # 遊戲名
                 print(c_a.get_attribute("href"))  # 頁面鏈接
                 game = {"game_name": '', "introduction": '', "hardware_need": '', "platform": [], "type": [],
-                        "release_date": None, "pay": False, "picture_path": '', "url_address": '', "classification": 0,
+                        "release_date": None, "pay": False, "picture_path": '', "web_address": '', "classification": 0,
                         "platform_logo_path": '/images/Ocean.png'}
                 game["game_name"] = c_a.get_attribute("title").split(" Free Download")[0]
-                game["url_address"] = c_a.get_attribute("href")
+                game["web_address"] = c_a.get_attribute("href")
                 game["platform"].append("Ocean of games")
                 try:
                     c_img = content.find_element(By.TAG_NAME, "img")
