@@ -226,13 +226,11 @@ class AboutUs(View):
                 "check" : 1,
                 "user" : request.user.username,
             }
-        return render(request,"about.html",context)
-
+        return render(request,"about.html", context)
     def post(self,request):
         pass
 
-
-class ContactUs(View):
+class ContactUs(View):#皓程
 
     def get(self,request):
         latest_games = Game.objects.all().order_by('-release_date')[:16]
@@ -245,22 +243,18 @@ class ContactUs(View):
                 "check" : 1,
                 "user" : request.user.username,
             }
-        return render(request,"contact.html",context)
-
+        return render(request,"contact.html", context)
     def post(self,request):
         pass
-
-
-class CommentSite(View):
+class CommentSite(View):#皓程
     def get(self,request):
         latest_games = Game.objects.all().order_by('-release_date')[:16]
         page = int(request.GET.get('page', 1))
         items_per_page = 5
-
         comments = CommentArea.objects.all().order_by('-dt')
         paginator = Paginator(comments, items_per_page)
         page_obj = paginator.get_page(page)
-        print(page,paginator.num_pages)
+
         context = {
             "latest_games" : latest_games,
             'comments': page_obj,
@@ -275,24 +269,13 @@ class CommentSite(View):
             return render(request, 'commentlist.html', context)
         else:
             return render(request, 'comments.html', context)
-        # latest_games = Game.objects.all().order_by('-release_date')[:16]
-        # comments = CommentArea.objects.all().order_by('-dt')
-        # context={
-        #     "latest_games" : latest_games,
-        #     "comments" : comments
-        # }
-
-        # if request.user.is_authenticated:
-        #     context["check"] = 1
-        #     context["user"] = request.user.username
-        # return render(request,"comments.html",context)
     def post(self,request):
         context = request.POST.get('Message')
         user = get_object_or_404(User, username = request.user.username)
         CommentArea.objects.create(user = user,context = context)
         return redirect(reverse("gameApp:commentarea"))
-
-class CommentReview(View):
+    
+class CommentReview(View):#皓程
     def get(self, request, pk):
         latest_games = Game.objects.all().order_by('-release_date')[:16]
         comment = get_object_or_404(CommentArea, pk = pk)

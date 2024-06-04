@@ -94,30 +94,29 @@ def battlenetgames():
 
 
 class Crawlfactory:
-    def __init__(self, num_threads : int): #chrome_browser : webdriver
-        # self.browser = chrome_browser
+    def __init__(self, num_threads : int): 
         self.num_threads = num_threads
         self.tasks = queue.Queue()
         self.threads = []
     def add_tasks(self, task_list : list):
         for task in task_list:
             self.tasks.put(task)
-    def worker(self): #brw : webdriver
+    def worker(self): 
         while not self.tasks.empty():
             task = self.tasks.get()
             if task is None:
                 break
-            task() #brw 
+            task() 
             self.tasks.task_done()
 
     def start_processing(self):
         for i in range(self.num_threads):
-            thread = threading.Thread(target=self.worker)  #args=(self.browser,)
+            thread = threading.Thread(target=self.worker)  
             self.threads.append(thread)
             thread.start()    
         for thread in self.threads:
             thread.join()
-            # self.browser.quit()
+            
        
         
 
