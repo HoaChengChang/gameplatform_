@@ -148,7 +148,8 @@ def Crawl_Steam():
 
     for gamelink in GameLinks:
         try:
-            SteamGames.append(gamedata(gamelink))
+            if gamedata(gamelink) != None:
+                SteamGames.append(gamedata(gamelink))
             wait(0.3)
         except:
             wait(0.3)

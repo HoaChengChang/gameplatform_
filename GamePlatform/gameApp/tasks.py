@@ -5,6 +5,7 @@ import threading
 import queue
 
 
+
 def save_to_database(data_list: list = None):  # 皓程
     from gameApp.models import Game, GamePlatform, Classification, GameType, GamePlatformRelation, GameTypeRelation
     if not data_list:
@@ -44,14 +45,12 @@ def save_to_database(data_list: list = None):  # 皓程
     ) for item in data_list]
 
     created_games = Game.objects.bulk_create(result_game)
-    # 重新抓取game，如果直接用result_game是沒辦法匯進去GamePlatformRelation、GameTypeRelation
-    saved_games = Game.objects.filter(
-        name__in=[game.name for game in created_games])
-    result_platform = [GamePlatformRelation(
-        game=game, platform=platform) for game in saved_games]
 
-    # game_type from char to object
-    game_type_list = []
+    #重新抓取game，如果直接用result_game是沒辦法匯進去GamePlatformRelation、GameTypeRelation
+    saved_games = Game.objects.filter(name__in = [game.name for game in created_games])
+    result_platform = [GamePlatformRelation(game = game, platform = platform) for game in saved_games]
+    
+    #game_type from char to object
     result_GameTypeRelation = []
     for game in saved_games:
         if len(game.game_type_tmp.split(',')) == 1:
@@ -77,10 +76,9 @@ def megagames():
 
 
 def oceanofGames():
-    pass
-    # from gameApp.crawler.Ocean import OceanOfGames
-    # results = OceanOfGames()
-    # save_to_database(results)
+    from gameApp.crawler.Ocean import OceanOfGames
+    results = OceanOfGames()
+    save_to_database(results)
 
 
 def C():
@@ -98,65 +96,43 @@ def epicgames():
     save_to_database(results)
 
 
-def E():
-    try:
-        for _ in range(20):
-            print("E")
-            time.sleep(1)
-    finally:
-        pass
+def battlenetgames():
+    from gameApp.crawler.battlenet import get_battle
+    results = get_battle()
+    save_to_database(results)
 
 
-class Crawlfactory:
-    def __init__(self, num_threads: int):  # chrome_browser : webdriver
-        # self.browser = chrome_browser
+
+class Crawlfactory: #皓程
+    def __init__(self, num_threads : int): 
         self.num_threads = num_threads
         self.tasks = queue.Queue()
         self.threads = []
 
-    def add_tasks(self, task_list: list):
+    def add_tasks(self, task_list : list):
         for task in task_list:
             self.tasks.put(task)
 
-    def worker(self):  # brw : webdriver
+    def worker(self): 
         while not self.tasks.empty():
             task = self.tasks.get()
             if task is None:
                 break
-            task()  # brw
+            task() 
             self.tasks.task_done()
 
     def start_processing(self):
         for i in range(self.num_threads):
-            thread = threading.Thread(
-                target=self.worker)  # args=(self.browser,)
+            thread = threading.Thread(target=self.worker)  
             self.threads.append(thread)
             thread.start()
         for thread in self.threads:
             thread.join()
-            # self.browser.quit()
 
 
 @shared_task
 def work_chain():
-
-    # chrome_browser = webdriver.Remote(
-    #     command_executor='http://35.240.205.111:4444/wd/hub',
-    #     options=webdriver.ChromeOptions()
-    # )
-    # firefox_browser = webdriver.Remote(
-    #     command_executor='http://35.240.205.111:4444/wd/hub',
-    #     options=webdriver.FirefoxOptions()
-    # )
-
-    tasks = Crawlfactory(2)  # chrome_browser,
-    tasks.add_tasks([megagames, oceanofGames, C, epicgames, E])
+    tasks = Crawlfactory(2)
+    tasks.add_tasks([megagames, oceanofGames, C, epicgames, battlenetgames])
     tasks.start_processing()
-    # task_chain = chain(
-    #     MegaGames.s(),
-    #     B.s(),
-    #     C.s(),
-    #     D.s(),
-    #     E.s(),
-    # )
-    # return task_chain()
+

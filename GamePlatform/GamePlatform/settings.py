@@ -37,7 +37,10 @@ ADMINS = (
     ('admin', 'gogohoward123@gmail.com', SUPERUSER_PASSWORD),
 )
 # Application definition
+
 APPEND_SLASH = True
+
+LOGIN_URL = '/signin/'
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -132,24 +135,24 @@ WSGI_APPLICATION = "GamePlatform.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 AUTH_USER_MODEL = 'gameApp.User'
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        # 'ENGINE': 'mysql.connector.django',
-        'NAME': DB_DATABASE,
-        'USER': DB_USER,
-        'PASSWORD':DB_PASSWORD,
-        'HOST':DB_HOST,
-        'PORT':'3306',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.mysql',
+#         # 'ENGINE': 'mysql.connector.django',
+#         'NAME': DB_DATABASE,
+#         'USER': DB_USER,
+#         'PASSWORD':DB_PASSWORD,
+#         'HOST':DB_HOST,
+#         'PORT':'3306',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 
@@ -249,7 +252,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'one810607@gmail.com'
 EMAIL_HOST_PASSWORD = 'zrnburtzdzqcslzg'
 DEFAULT_FROM_EMAIL = 'GameProject@gmail.com'
+# SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
