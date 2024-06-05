@@ -93,7 +93,7 @@ def battlenetgames():
     save_to_database(results)
 
 
-class Crawlfactory:
+class Crawlfactory: #皓程
     def __init__(self, num_threads : int): 
         self.num_threads = num_threads
         self.tasks = queue.Queue()
