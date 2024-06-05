@@ -37,6 +37,7 @@ ADMINS = (
     ('admin', 'gogohoward123@gmail.com', SUPERUSER_PASSWORD),
 )
 # Application definition
+
 APPEND_SLASH = True
 
 LOGIN_URL = '/signin/'
@@ -251,7 +252,10 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+# EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'one810607@gmail.com'
 EMAIL_HOST_PASSWORD = 'zrnburtzdzqcslzg'
 DEFAULT_FROM_EMAIL = 'GameProject@gmail.com'
+# SECURE_SSL_REDIRECT = True
+# SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
