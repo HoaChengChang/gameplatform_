@@ -81,13 +81,28 @@ def oceanofGames():
     save_to_database(results)
 
 
-def C():
-    try:
-        for _ in range(20):
-            print("C")
-            time.sleep(1)
-    finally:
-        pass
+def SteamGames():
+    from crawler.miyuuuu_Crawl.steam_main import Crawl_Steam
+
+    steam_cate = ['action', 'arcade_rhythm', 'shmup', 'action_fps', 'action_tps',
+                  'adventure', 'casual', 'adventure_rpg', 'story_rich',
+                  'rpg', 'adventure_rpg', 'rpg_action', 'rpg_turn_based', 'rpg_party_based', 'rpg_jrpg', 'rpg_strategy_tactics',
+                  'simulation', 'sim_hobby_sim', 'sim_life', 'action_run_jump',
+                  'strategy_card_board', 'strategy_real_time', 'strategy_turn_based',
+                  'sports_and_racing', 'strategy_grand_4x', 'sports_individual', 'sports_team', 'sports',
+                  'racing', 'racing_sim', 'sports_sim']
+
+# Crawl_Steam(<category>, <More Button Count>, <Error Chance>)
+# category is steam category
+# More Button Count ( value 0 ＝ ∞ )
+# Error Chance
+#   ec = -1     No more button.
+#   ec = 0      No error chance.    （default）
+#   ec = <int>  Error chance count. （no debug）
+
+    for i in steam_cate:
+        results = Crawl_Steam(i, 60)
+        save_to_database(results)
 
 
 def epicgames():
@@ -133,6 +148,6 @@ class Crawlfactory: #皓程
 @shared_task
 def work_chain():
     tasks = Crawlfactory(2)
-    tasks.add_tasks([megagames, oceanofGames, C, epicgames, battlenetgames])
+    tasks.add_tasks([megagames, oceanofGames, SteamGames, epicgames, battlenetgames])
     tasks.start_processing()
 
