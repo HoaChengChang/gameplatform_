@@ -3,20 +3,26 @@
 # --------setting--------
 
 # Category Name
-# categoryurl = 'action'
-categoryurl = 'arcade_rhythm'
+
+# categoryurl = ['action', 'arcade_rhythm', 'shmup', 'action_fps', 'action_tps',
+#                'adventure', 'casual', 'adventure_rpg', 'story_rich',
+#                'rpg', 'adventure_rpg', 'rpg_action', 'rpg_turn_based', 'rpg_party_based', 'rpg_jrpg', 'rpg_strategy_tactics',
+#                'simulation', 'sim_hobby_sim', 'sim_life', 'action_run_jump',
+#                'strategy_card_board', 'strategy_real_time', 'strategy_turn_based',
+#                'sports_and_racing', 'strategy_grand_4x', 'sports_individual', 'sports_team', 'sports',
+#                'racing', 'racing_sim', 'sports_sim']
 # categoryurl = 'soundtracks'
 
 # More Button Count ( value 0 ＝ ∞ )
 #   1 count ≒ 12 games
-MBcount = 1
+# MBcount = 1
 
 # Error Chance
 #   ec = -1     No more button.
 #   ec = 0      No error chance.
 #   ec = <int>  Error chance count.
 
-ec = -1
+# ec = -1
 
 # ----------end----------
 
@@ -40,7 +46,7 @@ def push_more(scroll=1358):
     driver.execute_script(f'window.scrollBy(0,{str(scroll)})')
     wait(2)
 
-def Crawl_Steam():
+def Crawl_Steam(categoryurl, MBcount, ec=0):
     mainurl = 'https://store.steampowered.com/category/'
     # suburl = '?facets13268=7%3A0%2C9%3A2%2C11%3A0'
 
@@ -60,9 +66,7 @@ def Crawl_Steam():
     global driver
     driver = webdriver.Remote(
     # command_executor='http://35.240.205.111:4444/wd/hub',
-    # command_executor='https://sngrid.miyuuuu.me/wd/hub',
-    command_executor='http://125.229.236.88:55444/wd/hub',
-    # command_executor='http://172.16.8.5:4444/wd/hub',
+    command_executor='https://sngrid.miyuuuu.me/wd/hub',
     options=opts
     )
 
@@ -70,11 +74,11 @@ def Crawl_Steam():
     driver.get(mainurl+categoryurl)
     wait(2.6)
 
-# スクロール
+# scroll
     driver.execute_script("var q=document.documentElement.scrollTop=3530")
     wait(3)
 
-# もっと表示ボタンのカウント
+# more buttom count
     if ec == -1:
         print('No push more mode.')
 
@@ -118,7 +122,7 @@ def Crawl_Steam():
                 if c == ec-1:
                     print('no more button')
 
-# リンク
+# all link in list 
     search_game_link = driver.find_elements(By.XPATH, f'{data_main_xpath}//*[@class="_1F4bcsKc9FjeWQ2TX8CWDe"]/a')
     GameLinks = []
     for sgl in search_game_link:
@@ -143,12 +147,13 @@ def Crawl_Steam():
 }
 '''
 
-# アウトプット
+# output
     SteamGames = []
 
     for gamelink in GameLinks:
         try:
-            SteamGames.append(gamedata(gamelink))
+            if gamedata(gamelink) != None:
+                SteamGames.append(gamedata(gamelink))
             wait(0.3)
         except:
             wait(0.3)
@@ -162,6 +167,7 @@ def Crawl_Steam():
 
     return SteamGames
 
+# test
 if __name__ == "__main__":
     try:
         Crawl_Steam()
