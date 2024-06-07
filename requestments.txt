@@ -33,3 +33,4 @@ mysqlclient
 django-celery-beat
 django-celery-results
 selenium
+axios

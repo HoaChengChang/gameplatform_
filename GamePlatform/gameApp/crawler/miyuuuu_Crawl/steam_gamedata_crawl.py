@@ -25,7 +25,7 @@ ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 #         return name
 
 def gamedata(url, IsData='Project'):
-
+    from gameApp.models import Game 
 # Use local
     # opts = Options()
 
@@ -198,6 +198,15 @@ def gamedata(url, IsData='Project'):
     driver.quit()
 
     SteamLogo = "https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"
+    game = Game.objects.filter(name = AppName,
+                                introduction = Game_Review,
+                                hardware_or_fileinfo = Spec,
+                                release_date = ReleaseDate,
+                                picture_game = BigpicLink[0],
+                                url_address = Url,
+                                )
+    if game.exists(): #當第一筆資料存在，代表沒新遊戲，所以後面就不用處理了，這是因為要配合crontab
+         return None
 
     if IsData == 'Project':
         return dict(game_name=AppName,
@@ -205,7 +214,7 @@ def gamedata(url, IsData='Project'):
             hardware_need=Spec,
             platform=['STEAM'],
             type=Types,
-            display_time=ReleaseDate,
+            release_date=ReleaseDate,
             pay=pay,
             picture_path=BigpicLink[0],
             web_address=Url,

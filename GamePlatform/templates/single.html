@@ -55,10 +55,14 @@
 						{% comment %} <input type="text" name="Name" placeholder="Name" required="">
 						<input type="email" name="Email" placeholder="Email" required=""> {% endcomment %}
 						<label for="customRange2" class="form-label">評分1~5</label>
-						<input type="range" class="form-range" name="score" min="0" max="5" id="customRange2">
+						<input type="range" class="form-range" name="score" value={{score}} min="0" max="5" id="customRange2">
 						{% comment %} <input type="floatformat" name="star" placeholder="1~5分" required=""> {% endcomment %}
 						<textarea name="Message" placeholder="Type your comment..." required="">{{comment}}</textarea>
-						<input type="submit" value="Submit">
+						{% if check %}
+						<input type="submit" value="留下評論">
+						{% else %}
+						<input type="submit" value="登入以留言">
+						{% endif %}
 					</form>
 				</div>
 				{% comment %} <h3>評論區</h3>
@@ -86,7 +90,7 @@
 							<ul>
 								<li><a href="#"><i class="glyphicon glyphicon-user"></i>{{ comment.user }}</a></li>
 								<li><i class="glyphicon glyphicon-calendar"></i>{{ comment.dt|date:"Y-m-d H:i" }}</li>
-								<li><a href="{% url 'gameApp:commentlike' comment.id game.id %}"><i class="glyphicon glyphicon-heart"></i>{{ comment.get_commentlike_count }}</a></li>
+								<li><a href="{% url 'gameApp:comment_like' comment.id game.id %}"><i class="glyphicon glyphicon-heart"></i>{{ comment.get_commentlike_count }}</a></li>
 							</ul>				
 						</div>
 						<p>{{ comment.context }}</p>

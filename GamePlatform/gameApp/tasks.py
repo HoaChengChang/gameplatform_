@@ -80,6 +80,7 @@ def oceanofGames():
     results = OceanOfGames()
     save_to_database(results)
 
+
 def SteamGames():
     from crawler.miyuuuu_Crawl.steam_main import Crawl_Steam
 
@@ -100,7 +101,8 @@ def SteamGames():
 #   ec = <int>  Error chance count. （no debug）
 
     for i in steam_cate:
-        Crawl_Steam(i, 60)
+        results = Crawl_Steam(i, 60)
+        save_to_database(results)
 
 
 def epicgames():

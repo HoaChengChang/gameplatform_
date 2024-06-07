@@ -6,21 +6,35 @@ from django.views import View
 from django.contrib.auth import login, logout, authenticate
 from .form import *
 from django.core.cache import cache
-from .models import User,GamePlatform,GameType,Classification,Game,GamePlatformRelation,GameTypeRelation,Comment
+from .models import User,GamePlatform,GameType,Classification,Game,GamePlatformRelation,GameTypeRelation,Comment,CommentArea,CommentAreaReview
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .emailverify import send_verify_code
+from django.http import JsonResponse
+from django.core.paginator import Paginator
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from .customize import save_message_to_session, icon_rename
+from django.views.decorators.csrf import csrf_exempt
+from django.core.files.storage import default_storage
+from gameApp.tasks import work_chain
+import json
 
 class Signin(View):#宗錡、皓程
+
+    def dispatch(self, request, *args, **kwargs):
+        self.latest_game = Game.objects.all().order_by('-release_date')[:16]
+        return super().dispatch(request, *args, **kwargs)
+
     def get(self, request):
-        latest_game = Game.objects.all().order_by('-release_date')[:16]
-        
         if request.user.is_authenticated:
             logout(request)
-            return redirect(reverse("gameApp:game_list"))
-        form = SigninForm()
-        return render(request,"signin.html", 
-                      {'form':form,"latest_games":latest_game,'next': request.GET.get('next', ''),
-                       'message': request.GET.get('message', '')})
+            return redirect("gameApp:game_list")
+        next_url = request.GET.get('next', reverse("gameApp:game_list"))
+        return render(request,"signin.html",  {"next": next_url, "latest_games":self.latest_game})
+
     def post(self, request):
         form = SigninForm(request.POST)
         if form.is_valid():
@@ -29,15 +43,10 @@ class Signin(View):#宗錡、皓程
             user = authenticate(request, username = username, password = password)
             if user is not None:
                 login(request, user)
-                # next_url = request.POST.get('next') + f"?message={request.POST.get('message')}" #　未有功能？　勿開
-                # return redirect(next_url)                                                       #
-                return redirect("gameApp:game_list")
+                next_url = request.POST.get('next',reverse("gameApp:game_list"))
+                return redirect(next_url)
         errors="Invalid username or password"
-        return render(request, 'signin.html', {'errors': errors})
-
-
-
-
+        return render(request, 'signin.html', {'form': form, 'errors': errors, 'next': request.POST.get('next', ''), "latest_games":self.latest_game})
 
 
 class Register(View):#宗錡、皓程
@@ -53,6 +62,7 @@ class Register(View):#宗錡、皓程
         else:
             print(userdata.errors)
             return render(request,'register.html', {"errors": userdata.errors})
+
 
 class EmailVerify(LoginRequiredMixin, View):
     def get(self, request):
@@ -93,11 +103,34 @@ class UserSpace(LoginRequiredMixin, View):
         birthday = user.birthday
         email = user.email
         emailVerify = user.emailverify
-        check=1
+        check = 1
+        latest_games = Game.objects.all().order_by('-release_date')[:16] #皓程
         return render(request, "user.html", locals())
+
+    @method_decorator(csrf_exempt)
+    def post(self, request):
+        user = User.objects.get(username=request.user)
+        if request.FILES.get('icon'):
+            post_icon = (request.FILES['icon'])
+            path = icon_rename(post_icon, post_icon.name)
+            print(default_storage.save(path, post_icon))
+            user.icon = path
+            user.save()
+            return JsonResponse({'success': True, 'url': default_storage.url(user.icon)})
+        data = json.loads(request.body)
+        field = data.get('field')
+        value = data.get('value')
+        if field and value:
+            setattr(user, field, value)
+            user.save()
+            return JsonResponse({'success': True})
+        return JsonResponse({'success': False})
+
 
 class Index(View):#宗錡
     def get(self,request):
+        # work_chain()
+        # return HttpResponse("finish")
         if request.user.is_authenticated:
             check = 1
             user = request.user.username,
@@ -143,6 +176,7 @@ class TrendsGame(View): #皓程
             return render(request,"list.html",context)
         return HttpResponse("無資料")
 
+
 class GameDetail(View): #皓程
     def get(self,request,id):
         game = get_object_or_404(Game, id = id)
@@ -151,10 +185,12 @@ class GameDetail(View): #皓程
         comments = Comment.objects.filter(game = game).order_by('-dt')
         recommand = Game.objects.filter(game_type = game_type[0]).order_by('?')[:12]
         latest_game = Game.objects.all().order_by('-release_date')[:16]
-        comment = request.GET.get('message', '')
+
         if comments:
             star_total = [comment.star_count for comment in comments]
             star_avg = sum(star_total) / len(star_total)
+            game.star_count = star_avg
+            game.save()
         else:
             star_avg = 0
         
@@ -168,71 +204,95 @@ class GameDetail(View): #皓程
             "comments" : comments,
             "recommands" : recommand,
             "latest_games" : latest_game,
-            "comment" : comment
         }
         if request.user.is_authenticated:
             context["check"] = 1
             context["user"] = request.user.username
 
-        return render(request,"single.html",context)
-    
-    def post(self,request,id):
-        if request.user.is_authenticated:
-            context = request.POST.get('Message')
-            score = request.POST.get('score')
-            game = get_object_or_404(Game, id = id)
-            user = get_object_or_404(User,username = request.user.username)
-            comment = Comment(game = game,user=user,context=context,star_count = float(score))
-            comment.save()
-            return redirect(reverse("gameApp:game_detail",kwargs={"id" : id}))
-        signin_url = reverse("gameApp:signin") + f"?next={request.path}&message="+request.POST.get("Message","")
-        return redirect(signin_url)
-    
-class AboutUs(View):
-    def get(self,request):
-        latest_games = Game.objects.all().order_by('-release_date')[:16]
-        context={
-            "latest_games" : latest_games
-        }
-        if request.user.is_authenticated:
-            context={
-                "check" : 1,
-                "user" : request.user.username,
-            }
-        return render(request,"about.html",context)
-    def post(self,request):
-        pass
+        saved_message = request.session.pop('saved_message', '')
+        saved_score = request.session.pop('saved_score', '')
+        if saved_message:
+            context['comment'] = saved_message
+        if saved_score:
+            context['score'] = saved_score
 
-class ContactUs(View):
+        return render(request,"single.html",context)
+
+    @method_decorator(save_message_to_session)
+    def post(self,request,id):
+        context = request.POST.get('Message')
+        score = request.POST.get('score')
+        game = get_object_or_404(Game, id = id)
+        user = get_object_or_404(User,username = request.user.username)
+        comment = Comment(game = game,user=user,context=context,star_count = float(score))
+        comment.save()
+        return redirect(reverse("gameApp:game_detail",kwargs={"id" : id}))
+
+class CommentSite(View):#皓程
     def get(self,request):
         latest_games = Game.objects.all().order_by('-release_date')[:16]
-        context={
-            "latest_games" : latest_games
+        page = int(request.GET.get('page', 1))
+        items_per_page = 5
+        comments = CommentArea.objects.all().order_by('-dt')
+        paginator = Paginator(comments, items_per_page)
+        page_obj = paginator.get_page(page)
+
+        context = {
+            "latest_games": latest_games,
+            'comments': page_obj,
         }
-        
+        saved_message = request.session.pop('saved_message', '')
+        if saved_message:
+            context['Message'] = saved_message
         if request.user.is_authenticated:
-            context={
-                "check" : 1,
-                "user" : request.user.username,
-            }
-        return render(request,"contact.html",context)
+            context["check"] = 1
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            if page > paginator.num_pages:
+                context = {
+                    "latest_games" : latest_games,
+                    "comments" : [],
+                }
+                return render(request, 'commentlist.html', context)
+        else:
+            return render(request, 'comments.html', context)
+
+    @method_decorator(save_message_to_session)
     def post(self,request):
-        pass
-class CommentArea(View):
-    def get(self,request):
+        context = request.POST.get('Message')
+        user = get_object_or_404(User, username = request.user.username)
+        CommentArea.objects.create(user = user,context = context)
+        return redirect(reverse("gameApp:commentarea"))
+
+
+class CommentReview(View):#皓程
+    def get(self, request, pk):
         latest_games = Game.objects.all().order_by('-release_date')[:16]
+        comment = get_object_or_404(CommentArea, pk = pk)
+        comments_review = CommentAreaReview.objects.filter(Comment = comment).order_by('-dt')
         context={
-            "latest_games" : latest_games
+            "latest_games" : latest_games,
+            "comment" : comment,
+            "comments_review" : comments_review
         }
-        
+        saved_message = request.session.pop('saved_message', '')
+        if saved_message:
+            context['Message'] = saved_message
         if request.user.is_authenticated:
-            context={
-                "check" : 1,
-                "user" : request.user.username,
-            }
-        return render(request,"comments.html",context)
-    def post(self,request):
-        pass
+            context["check"] = 1
+            context["user"] = request.user.username
+        return render(request,"commentsabout.html",context)
+
+    @method_decorator(save_message_to_session)
+    def post(self, request, pk):
+        context = request.POST.get('Message')
+        comment = get_object_or_404(CommentArea, pk = pk)
+        print(request.user.username)
+        user = get_object_or_404(User, username = request.user.username)
+        CommentAreaReview.objects.create(Comment = comment,
+                                        user = user,
+                                        context = context)
+        return redirect(reverse("gameApp:comment_review",kwargs={'pk': pk}))
+
 class Games(View):
     def get(self,request):
         latest_games = Game.objects.all().order_by('-release_date')[:16]
@@ -241,22 +301,62 @@ class Games(View):
         }
         
         if request.user.is_authenticated:
-            context={
-                "check" : 1,
-                "user" : request.user.username,
-            }
+            context["check"] = 1
+            context["user"] = request.user.username
         return render(request,"games.html",context)
+
     def post(self,request):
         pass
 
-class CommentLike(View): #皓程
-    def get(self,request,commend_id,game_id):
+class CommentLike(LoginRequiredMixin, View): #皓程
+    def get(self,request,comment_id,game_id):
+        user = User.objects.get(username = request.user.username)
+        comment = Comment.objects.get(id = comment_id)
+        comment.game_like.add(user)
+        comment.save()
+        return redirect(reverse("gameApp:game_detail", kwargs={"id" : game_id}))
+
+
+class CommentAreaLike(LoginRequiredMixin, View): #皓程
+    def get(self,request,comment_id):
+        user =  get_object_or_404(User, username = request.user.username)
+        comment = get_object_or_404(CommentArea, id = comment_id)
+        comment.comment_like.add(user)
+        comment.save()
+        return redirect(reverse("gameApp:commentarea"))
+
+
+class CommentAreaReviewLike(LoginRequiredMixin, View): #皓程
+    def get(self, request, comment_id, pk):
+        user =  get_object_or_404(User, username=request.user.username)
+        comment = get_object_or_404(CommentAreaReview, id=comment_id)
+        comment.comment_review_like.add(user)
+        comment.save()
+        return redirect(reverse("gameApp:comment_review",kwargs={'pk' : pk}))
+
+
+class ContactUs(View):
+    def get(self,request):
+        latest_games = Game.objects.all().order_by('-release_date')[:16]
+        context={"latest_games": latest_games}
         if request.user.is_authenticated:
-            user = User.objects.get(username = request.user.username)
-            comment = Comment.objects.get(id = commend_id)
-            comment.game_like.add(user)
-            comment.save()
-            return redirect(reverse("gameApp:game_detail",kwargs={"id" : game_id}))
-        # signin_url = reverse("gameApp:signin") + f"?next={request.path}"
-        return redirect(reverse("gameApp:game_list"))#edit 
-        # return redirect(signin_url)
+            context["check"] = 1
+            context["user"] = request.user.username
+        saved_message = request.session.pop('saved_message', '')
+        saved_subject = request.session.pop('saved_subject', '')
+        if saved_message:
+            context['Message'] = saved_message
+        if saved_subject:
+            context["Subject"] = saved_subject
+        return render(request,"contact.html", context)
+
+    @method_decorator(save_message_to_session)
+    def post(self,request):
+        user = User.objects.get(username=request.user.username)
+        email =user.email
+        subject = request.POST.get('Subject', '')
+        message = request.POST.get('Message', '')
+        send_mail(subject, message+'\n\n來自 '+email, settings.DEFAULT_FROM_EMAIL, [settings.EMAIL_HOST_USER])
+        messages.success(request,"訊息成功寄出")
+        return redirect(reverse("gameApp:contact"))
+    

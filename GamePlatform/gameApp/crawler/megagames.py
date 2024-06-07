@@ -58,8 +58,6 @@ def Crawl_megagames():  #皓程
                                            url_address = url,
                                             )
                 if game.exists(): #當第一筆資料存在，代表沒新遊戲，所以後面就不用處理了，這是因為要配合crontab
-                    print("haha, I got it bug")
-                    print(game_name)
                     return data_list
                 data = {
                     "game_name" : game_name,
