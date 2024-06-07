@@ -2,4 +2,4 @@ GamePlatform/gameApp/statics/images/
 GamePlatform/gameApp/crawl.py
 GamePlatform/db.sqlite3
 GamePlatform/media/
-__pycache__/*
+**/__pycache__/
