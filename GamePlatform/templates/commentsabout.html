@@ -51,17 +51,29 @@
 	 </div>
 	 <p>{{comment.context}}</p>
 </div>
+<div class="agileits_reply">
+	<h3>Leave a reply</h3>
+	<form action="{% url 'gameApp:comment_review' comment.pk %}" method="post">
+		{% csrf_token %}
+		<textarea name="Message" placeholder="Type your comment..." required="">{{Message}}</textarea>
+		{% if check %}
+		<input type="submit" value="Submit">
+		{% else %}
+		<input type="submit" value="登入以留言">
+		{% endif %}
+	</form>
+</div>
 <div class="col-md-15 events-section2-agileinfo">
 <div class="scrollable" id="scrollable">
 <div class="col-md-15 scrollable2 container">
-	<div class="agileits_reply">
+	{% comment %} <div class="agileits_reply">
 		<h3>Leave a reply</h3>
 		<form action="{% url 'gameApp:comment_review' comment.pk %}" method="post">
 			{% csrf_token %}
 			<textarea name="Message" placeholder="Type your comment..." required=""></textarea>
 			<input type="submit" value="Submit">
 		</form>
-	</div>
+	</div> {% endcomment %}
 	{% for comment_review in comments_review %}   
 	<div class="blog1-w3ls">
 		<div class=" blog-text-w3ls">

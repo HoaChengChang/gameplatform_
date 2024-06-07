@@ -61,13 +61,13 @@
           class="text"
           name="Subject"
           placeholder="主旨"
-          required=""
-        />
+          required
+          value={{ Subject }}>
         <textarea
           name="Message"
           placeholder="有什麼話想說的"
           required=""
-        ></textarea>
+        >{{Message}}</textarea>
         {% csrf_token %}
         <input type="submit" class="more_btn" value="Send Message" />
       </form>
