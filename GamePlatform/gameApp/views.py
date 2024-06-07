@@ -16,8 +16,11 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from gameApp.customize import save_message_to_session
+from .customize import save_message_to_session, icon_rename
+from django.views.decorators.csrf import csrf_exempt
+from django.core.files.storage import default_storage
 from gameApp.tasks import work_chain
+import json
 
 class Signin(View):#宗錡、皓程
 
@@ -28,7 +31,7 @@ class Signin(View):#宗錡、皓程
     def get(self, request):
         if request.user.is_authenticated:
             logout(request)
-            return redirect(reverse("gameApp:game_list"))
+            return redirect("gameApp:game_list")
         next_url = request.GET.get('next', reverse("gameApp:game_list"))
         return render(request,"signin.html",  {"next": next_url, "latest_games":self.latest_game})
 
@@ -90,7 +93,6 @@ class EmailVerify(LoginRequiredMixin, View):
             """)
         return render(request, "verification_input.html", locals())
 
-
 class UserSpace(LoginRequiredMixin, View):
     def get(self, request):
         user = request.user
@@ -104,6 +106,25 @@ class UserSpace(LoginRequiredMixin, View):
         check = 1
         latest_games = Game.objects.all().order_by('-release_date')[:16] #皓程
         return render(request, "user.html", locals())
+
+    @method_decorator(csrf_exempt)
+    def post(self, request):
+        user = User.objects.get(username=request.user)
+        if request.FILES.get('icon'):
+            post_icon = (request.FILES['icon'])
+            path = icon_rename(post_icon, post_icon.name)
+            print(default_storage.save(path, post_icon))
+            user.icon = path
+            user.save()
+            return JsonResponse({'success': True, 'url': default_storage.url(user.icon)})
+        data = json.loads(request.body)
+        field = data.get('field')
+        value = data.get('value')
+        if field and value:
+            setattr(user, field, value)
+            user.save()
+            return JsonResponse({'success': True})
+        return JsonResponse({'success': False})
 
 
 class Index(View):#宗錡
