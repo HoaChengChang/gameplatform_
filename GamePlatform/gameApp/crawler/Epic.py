@@ -8,7 +8,6 @@ Created on Fri May 17 21:27:52 2024
 from selenium import webdriver
 from bs4 import BeautifulSoup
 
-
 def crawl_epicgames(total):
     gameList = []
     start = 0
@@ -27,17 +26,18 @@ def crawl_epicgames(total):
     while True:
         try:
             chrome_browser = webdriver.Remote(
-            command_executor='http://125.229.236.88:55444/wd/hub',
+            command_executor='http://sngrid.miyuuuu.me/wd/hub',
             options=webdriver.ChromeOptions())
             url = "https://store.epicgames.com/zh-Hant/browse?sortBy=releaseDate&sortDir=DESC&category=Game&count=40&start="+str(start)
             chrome_browser.get(url)
             soup = BeautifulSoup(chrome_browser.page_source, "html.parser")
             inUrls = soup.select("a.css-g3jcms")
+            chrome_browser.quit()
             for inUrl in inUrls:
-                gameDict = {"game-name":"","introduction":"","hardware-need":"","platform":[],"type":[],"release_date":"",
-                            "pay":"","picture-path":"","web-address":"","classification":"","platform_logo_path":""}
+                gameDict = {"game_name":"","introduction":"","hardware_need":"","platform":[],"type":[],"release_date":"",
+                            "pay":"","picture_path":"","web_address":"","classification":"","platform_logo_path":""}
                 chrome_browser2 = webdriver.Remote(
-                command_executor='http://125.229.236.88:55444/wd/hub',
+                command_executor='http://sngrid.miyuuuu.me/wd/hub',
                 options=webdriver.ChromeOptions())
                 chrome_browser2.get("https://store.epicgames.com"+inUrl.get("href"))
                 soup2 = BeautifulSoup(chrome_browser2.page_source, "html.parser")
@@ -61,37 +61,38 @@ def crawl_epicgames(total):
                         continue
                     else:
                         gameDict["pay"] = pay.text == "立即購買"
-                    gameDict["game-name"] = gameName.text
+                    gameDict["game_name"] = gameName.text
                     gameDict["introduction"] = content.text
                     for itemLow,needLow in zip(itemLows,needLows):
                         low += (itemLow.text+":"+needLow.text+"\n")
                     for itemAdvice,needAdvice in zip(itemAdvices,needAdvices):
                         advice += (itemAdvice.text+":"+needAdvice.text+"\n")
                     if "建議" in check.text:     
-                        gameDict["hardware-need"] = "最低\n"+low+"\n"+"建議\n"+advice
+                        gameDict["hardware_need"] = "最低\n"+low+"\n"+"建議\n"+advice
                     gameDict["platform"].append(platform)
                     for gameType in gameTypes:
                         if gameType.text in typeDict and typeDict[gameType.text] not in gameDict["type"]:
                             gameDict["type"].append(typeDict[gameType.text])
                     gameDict["release_date"] = date.get("datetime").split("T")[0]
-                    gameDict["picture-path"] = img.get("src")
-                    gameDict["web-address"] = chrome_browser.current_url
+                    gameDict["picture_path"] = img.get("src")
+                    gameDict["web_address"] = chrome_browser2.current_url
                     if alt.get("alt") == "18+":
                         gameDict["classification"] = 1
                     else:
                         gameDict["classification"] = 0
                     gameDict["platform_logo_path"] = logoImg
-                if gameDict["game-name"] != "" and gameDict["hardware-need"] != "":
+                if gameDict["game_name"] != "" and gameDict["hardware_need"] != "":
                     gameList.append(gameDict)
                 chrome_browser2.quit()        
                 if len(gameList) == total:
                     return gameList   
             start += 40
         finally:
-            chrome_browser.quit()
+            pass
+            # chrome_browser.quit()
     
 
-total = 1000
-game = crawl_epicgames(total)
+
+
 
 

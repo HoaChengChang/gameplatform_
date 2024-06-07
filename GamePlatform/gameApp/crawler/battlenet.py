@@ -4,11 +4,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 # 抓取連結
 def get_battle():
-    driver = chrome_browser = webdriver.Remote(
-            # command_executor='http://35.240.205.111:4444/wd/hub',
-            command_executor='https://sngrid.miyuuuu.me/wd/hub',
+    driver = webdriver.Remote(
+            command_executor='http://sngrid.miyuuuu.me/wd/hub',
             options=webdriver.ChromeOptions())
-    # driver=webdriver.Chrome()
     driver.get("https://tw.shop.battle.net/zh-tw")
     driver.maximize_window()
     wait=WebDriverWait(driver, 10) 

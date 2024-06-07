@@ -10,12 +10,14 @@ def save_to_database(data_list: list = None):  # 皓程
     from gameApp.models import Game, GamePlatform, Classification, GameType, GamePlatformRelation, GameTypeRelation
     if not data_list:
         return
-    platform, _ = GamePlatform.objects.get_or_create(
-        name=data_list[0]["platform"][0], loge_picture=data_list[0]["platform_logo_path"])
-    game_classification_limit, _ = Classification.objects.get_or_create(
-        class_name=1)
-    game_classification_commen, _ = Classification.objects.get_or_create(
-        class_name=0)
+    '''
+    由於要降低DB的負荷，所以使用bulk_create批次存入資料庫，
+    又加上有物件有foreignkey,manytomany關係，寫法才會如下：
+    '''
+    platform, _ = GamePlatform.objects.get_or_create(name=data_list[0]["platform"][0],
+                                                    loge_picture=data_list[0]["platform_logo_path"])
+    game_classification_limit, _ = Classification.objects.get_or_create(class_name=1)
+    game_classification_commen, _ = Classification.objects.get_or_create(class_name=0)
 
     for item in data_list:
         if item["release_date"] in (None, ""):
@@ -69,13 +71,13 @@ def save_to_database(data_list: list = None):  # 皓程
     GamePlatformRelation.objects.bulk_create(result_platform)
 
 
-def megagames():
+def megagames():#爬蟲：皓程
     from gameApp.crawler.megagames import Crawl_megagames
     results = Crawl_megagames()
     save_to_database(results)
 
 
-def oceanofGames():
+def oceanofGames():#爬蟲：宗錡
     from gameApp.crawler.Ocean import OceanOfGames
     results = OceanOfGames()
     save_to_database(results)
@@ -105,13 +107,13 @@ def SteamGames():
         save_to_database(results)
 
 
-def epicgames():
-    from gameApp.crawler.epicgames import crawl_epicgames
-    results = crawl_epicgames()
+def epicgames():#爬蟲：英帆
+    from gameApp.crawler.Epic import crawl_epicgames
+    results = crawl_epicgames(1000)
     save_to_database(results)
 
 
-def battlenetgames():
+def battlenetgames():#爬蟲：崇皓
     from gameApp.crawler.battlenet import get_battle
     results = get_battle()
     save_to_database(results)
@@ -123,7 +125,7 @@ class Crawlfactory: #皓程
         self.num_threads = num_threads
         self.tasks = queue.Queue()
         self.threads = []
-
+    #加任務（函式）
     def add_tasks(self, task_list : list):
         for task in task_list:
             self.tasks.put(task)
@@ -142,11 +144,16 @@ class Crawlfactory: #皓程
             self.threads.append(thread)
             thread.start()
         for thread in self.threads:
+            #等到所有任務皆完成，start_processing才真正結束
             thread.join()
 
 
 @shared_task
-def work_chain():
+def work_chain(): #皓程
+    '''
+    針對5個平台進行爬蟲，由於selenium是由docker架在虛擬機上，
+    虛擬機效能有限，所以只開 2 threads
+    '''
     tasks = Crawlfactory(2)
     tasks.add_tasks([megagames, oceanofGames, SteamGames, epicgames, battlenetgames])
     tasks.start_processing()

@@ -1,5 +1,5 @@
 
-FROM python:3.9
+FROM python:3.10
 
 RUN apt-get update && apt install -y netcat-traditional
 

@@ -20,7 +20,7 @@ def Crawl_megagames():  #皓程
     data_list = []
     while True:
         browser = webdriver.Remote(
-            command_executor='http://125.229.236.88:55444/wd/hub',
+            command_executor='http://sngrid.miyuuuu.me/wd/hub',
             options=webdriver.ChromeOptions()
         )   
         try:

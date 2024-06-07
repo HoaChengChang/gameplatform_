@@ -10,18 +10,17 @@ import time
 def crawl():
     from gameApp.models import Game
     games = []
-    # driver = webdriver.Remote(
-    #     command_executor='http://125.229.236.88:55444/wd/hub',
-    #     options=webdriver.ChromeOptions()
-    # )
-    driver = webdriver.Chrome()
+    driver = webdriver.Remote(
+        command_executor='http://sngrid.miyuuuu.me/wd/hub',
+        options=webdriver.ChromeOptions()
+    )
     try:
         driver.get("https://oceanofgames.com/")
         gen = {"Action": "動作", "Adventure": "冒險", "Arcade": "大型電玩", "Fighting": "格鬥", "Horror": "恐怖",
                "Puzzle": "益智", "Racing": "駕駛", "Shooting Games": "射擊", "Simulation": "模擬", "Sports": "體育",
                "War": "戰略", "Strategy": "戰略", "Mystery": "冒險", "Fantasy": "冒險", "Sci Fi": "冒險", "RPG": "RPG",
                "Survival": "模擬", "Casual": "模擬", "Indie": "獨立", "Reviews": "not in type", "Trainer": "not in type"}
-        while len(games) <= 20:
+        while len(games) <= 500:
             WebDriverWait(driver, 5).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div.post-details')))
             contents = driver.find_element(By.XPATH,
                                            "/html/body/div/div/div[2]/div/div/div/div/div[1]/div/div[1]").find_elements(

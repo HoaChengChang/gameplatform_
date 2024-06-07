@@ -3,10 +3,13 @@ from django.db.models import F, Q
 from django.contrib.auth.models import AbstractUser
 from gameApp.customize import icon_rename
 
+'''
 
-#資料庫設計：皓程
+資料庫設計：皓程
 
-# Create your models here.
+'''
+
+
 class User(AbstractUser):
     SEX_CHOICES = [
         [0, '男'],
@@ -116,6 +119,7 @@ class Game(models.Model):
         db_table='Game'
         verbose_name='遊戲'
         verbose_name_plural=verbose_name
+        unique_together = [["name", "url_address"]]
     def __str__(self):
         return '%s' %self.name
 
