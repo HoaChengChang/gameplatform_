@@ -41,9 +41,7 @@ def gamedata(url, IsData='Project'):
 # Use Selenium Grid
     driver = webdriver.Remote(
     # command_executor='http://35.240.205.111:4444/wd/hub',
-    # command_executor='https://sngrid.miyuuuu.me/wd/hub',
-    command_executor='http://125.229.236.88:55444/wd/hub',
-    # command_executor='http://172.16.8.5:4444/wd/hub',
+    command_executor='https://sngrid.miyuuuu.me/wd/hub',
     options=opts)
 
 # Use local
