@@ -16,8 +16,10 @@ def save_message_to_session(view_func):
     def _wrapped_view(request, *args, **kwargs):
         if not request.user.is_authenticated and request.method == 'POST':
             request.session['saved_message'] = request.POST.get('Message')
-            request.session['saved_score'] = request.POST.get('score')
+            if request.POST.get('score'):
+                request.session['saved_score'] = request.POST.get('score')
+            if request.POST.get('Subject'):
+                request.session['saved_subject'] = request.POST.get('Subject')
             return redirect(f"{reverse('gameApp:signin')}?next={request.path}")
         return view_func(request, *args, **kwargs)
     return _wrapped_view
-

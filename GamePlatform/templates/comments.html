@@ -42,8 +42,12 @@
 	<h3>Leave a reply</h3>
 	<form action="{% url 'gameApp:commentarea' %}" method="post">
 		{% csrf_token %}
-		<textarea name="Message" placeholder="Type your comment..." required=""></textarea>
-		<input type="submit" value="Submit">
+		<textarea name="Message" placeholder="Type your comment..." required="">{{Message}}</textarea>
+		{% if check %}
+		<input type="submit" value="建立新討論串">
+		{% else %}
+		<input type="submit" value="登入以留言">
+		{% endif %}
 	</form>
 </div>
 <div class="events-section2-agileinfo">
