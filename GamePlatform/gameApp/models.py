@@ -46,7 +46,7 @@ class User(AbstractUser):
     
 
 class GameType(models.Model):
-    typename = models.CharField(max_length=25,null=False,default='免費')
+    typename = models.CharField(max_length=25, null=False, blank=False, default='免費')
 
     class Meta:
         db_table='GameType'
@@ -119,7 +119,6 @@ class Game(models.Model):
         db_table='Game'
         verbose_name='遊戲'
         verbose_name_plural=verbose_name
-        unique_together = [["name", "url_address"]]
     def __str__(self):
         return '%s' %self.name
 

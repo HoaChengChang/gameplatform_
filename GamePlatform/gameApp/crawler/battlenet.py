@@ -121,25 +121,23 @@ def get_battle():
                 continue
         if len(unlisted) != 0:
             for index  in reversed(unlisted):
-                del game_name[index],web_address[index]
-                
+                del game_name[index],web_address[index]       
     finally:        
             driver.quit()
             
     for i in range(len(game_name)):
-                game_temp = {
-                "game_name": game_name[i],
-                "introduction": introduction[i],
-                "hardware_need": h_requirements[i],
-                "platform": platform[i],
-                "type": types[i],
-                "release_date": "",
-                "pay": pay[i],
-                "picture_path": imgs[i],
-                "web_address": web_address[i],
-                "classification": classification[i],
-                "platform_logo_path":"/statics/images/Battle.png"
-                }
-                output.append(game_temp)
+        game_temp = {
+        "game_name": game_name[i],
+        "introduction": introduction[i],
+        "hardware_need": h_requirements[i],
+        "platform": list(platform[i]),
+        "type": types[i],
+        "release_date": "",
+        "pay": pay[i],
+        "picture_path": imgs[i],
+        "web_address": web_address[i],
+        "classification": classification[i],
+        "platform_logo_path":"/statics/images/Battle.png"
+        }
+        output.append(game_temp)
     return(output)
-get_battle()

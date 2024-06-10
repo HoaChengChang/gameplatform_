@@ -130,7 +130,7 @@ class UserSpace(LoginRequiredMixin, View): #宗錡
 
 class Index(View):#宗錡
     def get(self,request):
-        # work_chain()
+        ##work_chain()
         if request.user.is_authenticated:
             check = 1
             user = request.user.username,

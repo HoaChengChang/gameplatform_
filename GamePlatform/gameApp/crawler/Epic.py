@@ -32,64 +32,69 @@ def crawl_epicgames(total):
             chrome_browser.get(url)
             soup = BeautifulSoup(chrome_browser.page_source, "html.parser")
             inUrls = soup.select("a.css-g3jcms")
-            chrome_browser.quit()
             for inUrl in inUrls:
-                gameDict = {"game_name":"","introduction":"","hardware_need":"","platform":[],"type":[],"release_date":"",
-                            "pay":"","picture_path":"","web_address":"","classification":"","platform_logo_path":""}
-                chrome_browser2 = webdriver.Remote(
-                command_executor='http://sngrid.miyuuuu.me/wd/hub',
-                options=webdriver.ChromeOptions())
-                chrome_browser2.get("https://store.epicgames.com"+inUrl.get("href"))
-                soup2 = BeautifulSoup(chrome_browser2.page_source, "html.parser")
-                gameNames = soup2.select("span.css-1mzagbj")
-                contents = soup2.select("div.css-1myreog")
-                imgs = soup2.select("img.css-7i770w")
-                pays = soup2.select("span.css-8en90x span")
-                alts = soup2.select("img.css-bgy6b6")
-                dates = soup2.select("span.css-119zqif time")
-                gameTypes = soup2.select("li.css-t8k7")
-                checks = soup2.select("div#panel-WINDOWS")
-                itemLows = soup2.select("div.css-2sc5lq span.css-d3i3lr")[2::2]
-                itemAdvices = soup2.select("div.css-2sc5lq span.css-d3i3lr")[3::2]
-                needLows = soup2.select("div.css-2sc5lq span.css-119zqif")[::2]
-                needAdvices = soup2.select("div.css-2sc5lq span.css-119zqif")[1::2]
-                low = ""
-                advice = ""
-                
-                for gameName,content,img,pay,date,alt,check in zip(gameNames,contents,imgs,pays,dates,alts,checks):
-                    if pay.text == "即將推出":
-                        continue
-                    else:
-                        gameDict["pay"] = pay.text == "立即購買"
-                    gameDict["game_name"] = gameName.text
-                    gameDict["introduction"] = content.text
-                    for itemLow,needLow in zip(itemLows,needLows):
-                        low += (itemLow.text+":"+needLow.text+"\n")
-                    for itemAdvice,needAdvice in zip(itemAdvices,needAdvices):
-                        advice += (itemAdvice.text+":"+needAdvice.text+"\n")
-                    if "建議" in check.text:     
-                        gameDict["hardware_need"] = "最低\n"+low+"\n"+"建議\n"+advice
-                    gameDict["platform"].append(platform)
-                    for gameType in gameTypes:
-                        if gameType.text in typeDict and typeDict[gameType.text] not in gameDict["type"]:
-                            gameDict["type"].append(typeDict[gameType.text])
-                    gameDict["release_date"] = date.get("datetime").split("T")[0]
-                    gameDict["picture_path"] = img.get("src")
-                    gameDict["web_address"] = chrome_browser2.current_url
-                    if alt.get("alt") == "18+":
-                        gameDict["classification"] = 1
-                    else:
-                        gameDict["classification"] = 0
-                    gameDict["platform_logo_path"] = logoImg
-                if gameDict["game_name"] != "" and gameDict["hardware_need"] != "":
-                    gameList.append(gameDict)
-                chrome_browser2.quit()        
-                if len(gameList) == total:
-                    return gameList   
+                try:
+                    gameDict = {"game_name":"","introduction":"","hardware_need":"","platform":[],"type":[],"release_date":"",
+                                "pay":"","picture_path":"","web_address":"","classification":"","platform_logo_path":""}
+                    chrome_browser2 = webdriver.Remote(
+                    command_executor='http://sngrid.miyuuuu.me/wd/hub',
+                    options=webdriver.ChromeOptions())
+                    chrome_browser2.get("https://store.epicgames.com"+inUrl.get("href"))
+                    soup2 = BeautifulSoup(chrome_browser2.page_source, "html.parser")
+                    gameNames = soup2.select("span.css-1mzagbj")
+                    contents = soup2.select("div.css-1myreog")
+                    imgs = soup2.select("img.css-7i770w")
+                    pays = soup2.select("span.css-8en90x span")
+                    alts = soup2.select("img.css-bgy6b6")
+                    dates = soup2.select("span.css-119zqif time")
+                    gameTypes = soup2.select("li.css-t8k7")
+                    checks = soup2.select("div#panel-WINDOWS")
+                    itemLows = soup2.select("div.css-2sc5lq span.css-d3i3lr")[2::2]
+                    itemAdvices = soup2.select("div.css-2sc5lq span.css-d3i3lr")[3::2]
+                    needLows = soup2.select("div.css-2sc5lq span.css-119zqif")[::2]
+                    needAdvices = soup2.select("div.css-2sc5lq span.css-119zqif")[1::2]
+                    low = ""
+                    advice = ""
+                    
+                    for gameName,content,img,pay,date,alt,check in zip(gameNames,contents,imgs,pays,dates,alts,checks):
+                        if pay.text == "即將推出":
+                            continue
+                        else:
+                            gameDict["pay"] = pay.text == "立即購買"
+                        gameDict["game_name"] = gameName.text
+                        gameDict["introduction"] = content.text
+                        for itemLow,needLow in zip(itemLows,needLows):
+                            low += (itemLow.text+":"+needLow.text+"\n")
+                        for itemAdvice,needAdvice in zip(itemAdvices,needAdvices):
+                            advice += (itemAdvice.text+":"+needAdvice.text+"\n")
+                        if "建議" in check.text:     
+                            gameDict["hardware_need"] = "最低\n"+low+"\n"+"建議\n"+advice
+                        gameDict["platform"].append(platform)
+                        for gameType in gameTypes:
+                            if gameType.text in typeDict and typeDict[gameType.text] not in gameDict["type"]:
+                                gameDict["type"].append(typeDict[gameType.text])
+                        gameDict["release_date"] = date.get("datetime").split("T")[0]
+                        gameDict["picture_path"] = img.get("src")
+                        gameDict["web_address"] = chrome_browser2.current_url
+                        if alt.get("alt") == "18+":
+                            gameDict["classification"] = 1
+                        else:
+                            gameDict["classification"] = 0
+                        gameDict["platform_logo_path"] = logoImg
+                    if gameDict["game_name"] != "" and gameDict["hardware_need"] != "":
+                        gameList.append(gameDict)
+                    
+                    chrome_browser2.quit()        
+                    if len(gameList) == total:
+                        return gameList
+                except:
+                    chrome_browser2.quit()                  
             start += 40
-        finally:
-            pass
-            # chrome_browser.quit()
+            chrome_browser.quit()
+        except:
+            start += 40
+            chrome_browser.quit()
+        
     
 
 
