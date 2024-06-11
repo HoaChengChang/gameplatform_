@@ -160,7 +160,8 @@ def Crawl_Steam(categoryurl, MBcount, ec=0):
             wait(0.3)
         except:
             wait(0.3)
-    return SteamGames
+        if len(SteamGames) > 200:
+            return SteamGames
 
 # test
 if __name__ == "__main__":
