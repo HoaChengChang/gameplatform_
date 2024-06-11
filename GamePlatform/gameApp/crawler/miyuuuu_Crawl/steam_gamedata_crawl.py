@@ -198,7 +198,7 @@ def gamedata(url, IsData='Project'):
 
     SteamLogo = "https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016"
     if IsData == 'Project':
-        return dict(game_name=AppName,
+        result = dict(game_name=AppName,
             introduction=Game_Review,
             hardware_need=Spec,
             platform=['STEAM'],
@@ -210,6 +210,8 @@ def gamedata(url, IsData='Project'):
             classification=Classificate,
             platform_logo_path=SteamLogo,
             )
+        print(result)
+        return result
     elif IsData == 'Types':
         return Types
 
