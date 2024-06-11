@@ -34,7 +34,8 @@ from time import sleep as wait
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from steam_gamedata_crawl import gamedata
+from .steam_gamedata_crawl import gamedata
+
 
 def push_more(scroll=1358):
     more_button_css = "._2wLns48qa0uwOUf7ktqdsC ._3IRkbvGD9KD6DdmHo16WAl ._3d9cKhzXJMPBYzFkB_IaRp"
@@ -148,23 +149,17 @@ def Crawl_Steam(categoryurl, MBcount, ec=0):
 '''
 
 # output
+    
     SteamGames = []
-
     for gamelink in GameLinks:
+        
         try:
-            if gamedata(gamelink) != None:
-                SteamGames.append(gamedata(gamelink))
+            result = gamedata(gamelink)
+            if  result != None:
+                SteamGames.append(result)
             wait(0.3)
         except:
             wait(0.3)
-
-
-    jdump = json.dumps(SteamGames, ensure_ascii=False, indent=4)
-
-    print(jdump)
-
-    # driver.quit()
-
     return SteamGames
 
 # test

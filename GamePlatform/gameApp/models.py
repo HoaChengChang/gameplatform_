@@ -3,10 +3,13 @@ from django.db.models import F, Q
 from django.contrib.auth.models import AbstractUser
 from gameApp.customize import icon_rename
 
+'''
 
-#資料庫設計：皓程
+資料庫設計：皓程
 
-# Create your models here.
+'''
+
+
 class User(AbstractUser):
     SEX_CHOICES = [
         [0, '男'],
@@ -43,7 +46,7 @@ class User(AbstractUser):
     
 
 class GameType(models.Model):
-    typename = models.CharField(max_length=25,null=False,default='免費')
+    typename = models.CharField(max_length=25, null=False, blank=False, default='免費')
 
     class Meta:
         db_table='GameType'

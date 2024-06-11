@@ -1,5 +1,5 @@
 
-FROM python:3.9
+FROM python:3.11.9
 
 RUN apt-get update && apt install -y netcat-traditional
 
@@ -25,7 +25,6 @@ RUN chown -R www-data:www-data $APP_HOME/media \
 RUN /usr/local/bin/python -m pip install --upgrade pip
 
 RUN pip install -r requirements.txt
-
 RUN sed -i 's/\r//' ./init.sh
 
 RUN chmod +x ./init.sh

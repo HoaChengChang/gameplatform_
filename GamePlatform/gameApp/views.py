@@ -1,15 +1,14 @@
 from django.shortcuts import render,HttpResponse,get_object_or_404,redirect
 from .tasks import work_chain
 from django.urls import reverse
-# Create your views here.
 from django.views import View
 from django.contrib.auth import login, logout, authenticate
 from .form import *
 from django.core.cache import cache
+from .cache import get_redis_cache
 from .models import User,GamePlatform,GameType,Classification,Game,GamePlatformRelation,GameTypeRelation,Comment,CommentArea,CommentAreaReview
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .emailverify import send_verify_code
-from django.http import JsonResponse
 from django.core.paginator import Paginator
 from django.core.mail import send_mail
 from django.conf import settings
@@ -22,10 +21,11 @@ from django.core.files.storage import default_storage
 from gameApp.tasks import work_chain
 import json
 
-class Signin(View):#宗錡、皓程
+
+class Signin(View):#宗錡
 
     def dispatch(self, request, *args, **kwargs):
-        self.latest_game = Game.objects.all().order_by('-release_date')[:16]
+        self.latest_game = get_redis_cache("latest_game", "latest_game")#皓程
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
@@ -49,9 +49,9 @@ class Signin(View):#宗錡、皓程
         return render(request, 'signin.html', {'form': form, 'errors': errors, 'next': request.POST.get('next', ''), "latest_games":self.latest_game})
 
 
-class Register(View):#宗錡、皓程
+class Register(View): #宗錡
     def get(self, request):
-        latest_game = Game.objects.all().order_by('-release_date')[:16]
+        latest_game = get_redis_cache("latest_game", "latest_game")#皓程
         return render(request, "register.html",{"latest_games":latest_game})
     def post(self, request):
         userdata = RegisterForm(request.POST, request.FILES)
@@ -64,7 +64,7 @@ class Register(View):#宗錡、皓程
             return render(request,'register.html', {"errors": userdata.errors})
 
 
-class EmailVerify(LoginRequiredMixin, View):
+class EmailVerify(LoginRequiredMixin, View): #宗錡
     def get(self, request):
         user = request.user
         verify_code = send_verify_code(user.email)
@@ -93,7 +93,8 @@ class EmailVerify(LoginRequiredMixin, View):
             """)
         return render(request, "verification_input.html", locals())
 
-class UserSpace(LoginRequiredMixin, View):
+
+class UserSpace(LoginRequiredMixin, View): #宗錡
     def get(self, request):
         user = request.user
         username = user.username
@@ -104,7 +105,7 @@ class UserSpace(LoginRequiredMixin, View):
         email = user.email
         emailVerify = user.emailverify
         check = 1
-        latest_games = Game.objects.all().order_by('-release_date')[:16] #皓程
+        latest_games = get_redis_cache("latest_game", "latest_game") #皓程
         return render(request, "user.html", locals())
 
     @method_decorator(csrf_exempt)
@@ -129,29 +130,24 @@ class UserSpace(LoginRequiredMixin, View):
 
 class Index(View):#宗錡
     def get(self,request):
-        # work_chain()
-        # return HttpResponse("finish")
+        ##work_chain()
         if request.user.is_authenticated:
             check = 1
             user = request.user.username,
         games=Game.objects.order_by('?')[:6]
-        game_types = GameType.objects.all()
+        game_types = get_redis_cache("all_type_objs", "all_type_objs")
         Gid=[game.id for game in games]
         Gname=[game.name for game in games]
         Gimg=[game.picture_game if game.picture_game!='' else "https://fit.univ-angers.fr/wp-content/uploads/sites/2/2019/04/simon-cadoret-picto-photo-noir.png" for game in games]
         latest_games = Game.objects.all().order_by('-release_date')[:16] #皓程
         return render(request, "index.html", locals())
 
-    def post(self,request):
-        pass
-
-#http://127.0.0.1:8000/trendsgame/?name=%E7%8D%A8%E7%AB%8B
 class TrendsGame(View): #皓程
     def get(self,request):
         name = request.GET['name']
-        game_type = GameType.objects.get(typename = name)
-        all_games = Game.objects.filter(game_type = game_type)
-        latest_game = Game.objects.all().order_by('-release_date')[:16]
+        game_type = get_redis_cache("game_type", name)
+        all_games = get_redis_cache("all_type_games", game_type)
+        latest_game = get_redis_cache("latest_game", "latest_game")
         context = {
             "games_list" : all_games,
             "game_type" : game_type,
@@ -179,14 +175,15 @@ class TrendsGame(View): #皓程
 
 class GameDetail(View): #皓程
     def get(self,request,id):
-        game = get_object_or_404(Game, id = id)
+        game = get_redis_cache("game", id)
+        latest_game = get_redis_cache("latest_game", "latest_game")
         platform = game.platform.all()
         game_type = game.game_type.all()
         comments = Comment.objects.filter(game = game).order_by('-dt')
         recommand = Game.objects.filter(game_type = game_type[0]).order_by('?')[:12]
-        latest_game = Game.objects.all().order_by('-release_date')[:16]
+        
 
-        if comments:
+        if comments.exists():
             star_total = [comment.star_count for comment in comments]
             star_avg = sum(star_total) / len(star_total)
             game.star_count = star_avg
@@ -209,7 +206,7 @@ class GameDetail(View): #皓程
             context["check"] = 1
             context["user"] = request.user.username
 
-        saved_message = request.session.pop('saved_message', '')
+        saved_message = request.session.pop('saved_message', '')#宗錡
         saved_score = request.session.pop('saved_score', '')
         if saved_message:
             context['comment'] = saved_message
@@ -220,17 +217,17 @@ class GameDetail(View): #皓程
 
     @method_decorator(save_message_to_session)
     def post(self,request,id):
-        context = request.POST.get('Message')
-        score = request.POST.get('score')
-        game = get_object_or_404(Game, id = id)
-        user = get_object_or_404(User,username = request.user.username)
+        context = request.POST.get('Message', "")
+        score = request.POST.get('score', 1)
+        game = get_redis_cache("game", id)
+        user = get_redis_cache("user", request.user.username)
         comment = Comment(game = game,user=user,context=context,star_count = float(score))
         comment.save()
         return redirect(reverse("gameApp:game_detail",kwargs={"id" : id}))
 
 class CommentSite(View):#皓程
     def get(self,request):
-        latest_games = Game.objects.all().order_by('-release_date')[:16]
+        latest_games = get_redis_cache("latest_game", "latest_game")
         page = int(request.GET.get('page', 1))
         items_per_page = 5
         comments = CommentArea.objects.all().order_by('-dt')
@@ -259,14 +256,14 @@ class CommentSite(View):#皓程
     @method_decorator(save_message_to_session)
     def post(self,request):
         context = request.POST.get('Message')
-        user = get_object_or_404(User, username = request.user.username)
+        user = get_redis_cache("user", request.user.username)
         CommentArea.objects.create(user = user,context = context)
         return redirect(reverse("gameApp:commentarea"))
 
 
 class CommentReview(View):#皓程
     def get(self, request, pk):
-        latest_games = Game.objects.all().order_by('-release_date')[:16]
+        latest_games = get_redis_cache("latest_game", "latest_game")
         comment = get_object_or_404(CommentArea, pk = pk)
         comments_review = CommentAreaReview.objects.filter(Comment = comment).order_by('-dt')
         context={
@@ -286,16 +283,15 @@ class CommentReview(View):#皓程
     def post(self, request, pk):
         context = request.POST.get('Message')
         comment = get_object_or_404(CommentArea, pk = pk)
-        print(request.user.username)
-        user = get_object_or_404(User, username = request.user.username)
+        user = get_redis_cache("user", request.user.username)
         CommentAreaReview.objects.create(Comment = comment,
                                         user = user,
                                         context = context)
         return redirect(reverse("gameApp:comment_review",kwargs={'pk': pk}))
 
-class Games(View):
+class Games(View):#皓程
     def get(self,request):
-        latest_games = Game.objects.all().order_by('-release_date')[:16]
+        latest_games = get_redis_cache("latest_game", "latest_game")
         context={
             "latest_games" : latest_games
         }
@@ -305,12 +301,10 @@ class Games(View):
             context["user"] = request.user.username
         return render(request,"games.html",context)
 
-    def post(self,request):
-        pass
 
 class CommentLike(LoginRequiredMixin, View): #皓程
     def get(self,request,comment_id,game_id):
-        user = User.objects.get(username = request.user.username)
+        user = get_redis_cache("user", request.user.username)
         comment = Comment.objects.get(id = comment_id)
         comment.game_like.add(user)
         comment.save()
@@ -319,7 +313,7 @@ class CommentLike(LoginRequiredMixin, View): #皓程
 
 class CommentAreaLike(LoginRequiredMixin, View): #皓程
     def get(self,request,comment_id):
-        user =  get_object_or_404(User, username = request.user.username)
+        user =  get_redis_cache("user", request.user.username)
         comment = get_object_or_404(CommentArea, id = comment_id)
         comment.comment_like.add(user)
         comment.save()
@@ -328,17 +322,20 @@ class CommentAreaLike(LoginRequiredMixin, View): #皓程
 
 class CommentAreaReviewLike(LoginRequiredMixin, View): #皓程
     def get(self, request, comment_id, pk):
-        user =  get_object_or_404(User, username=request.user.username)
-        comment = get_object_or_404(CommentAreaReview, id=comment_id)
+        user =  get_redis_cache("user", request.user.username)
+        comment = get_object_or_404(CommentAreaReview, id = comment_id)
         comment.comment_review_like.add(user)
         comment.save()
         return redirect(reverse("gameApp:comment_review",kwargs={'pk' : pk}))
 
 
 class ContactUs(View):
-    def get(self,request):
-        latest_games = Game.objects.all().order_by('-release_date')[:16]
-        context={"latest_games": latest_games}
+    def get(self,request): #皓程
+        latest_games = get_redis_cache("latest_game", "latest_game")
+        context={
+            "latest_games" : latest_games
+        }
+        
         if request.user.is_authenticated:
             context["check"] = 1
             context["user"] = request.user.username
@@ -351,8 +348,8 @@ class ContactUs(View):
         return render(request,"contact.html", context)
 
     @method_decorator(save_message_to_session)
-    def post(self,request):
-        user = User.objects.get(username=request.user.username)
+    def post(self,request): #崇皓
+        user = get_redis_cache("user", request.user.username)
         email =user.email
         subject = request.POST.get('Subject', '')
         message = request.POST.get('Message', '')

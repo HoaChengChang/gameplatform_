@@ -8,20 +8,18 @@ import time
 
 
 def crawl():
-    from gameApp.models import Game
     games = []
-    # driver = webdriver.Remote(
-    #     command_executor='http://125.229.236.88:55444/wd/hub',
-    #     options=webdriver.ChromeOptions()
-    # )
-    driver = webdriver.Chrome()
+    driver = webdriver.Remote(
+        command_executor='http://sngrid.miyuuuu.me/wd/hub',
+        options=webdriver.ChromeOptions()
+    )
     try:
         driver.get("https://oceanofgames.com/")
         gen = {"Action": "動作", "Adventure": "冒險", "Arcade": "大型電玩", "Fighting": "格鬥", "Horror": "恐怖",
                "Puzzle": "益智", "Racing": "駕駛", "Shooting Games": "射擊", "Simulation": "模擬", "Sports": "體育",
                "War": "戰略", "Strategy": "戰略", "Mystery": "冒險", "Fantasy": "冒險", "Sci Fi": "冒險", "RPG": "RPG",
                "Survival": "模擬", "Casual": "模擬", "Indie": "獨立", "Reviews": "not in type", "Trainer": "not in type"}
-        while len(games) <= 20:
+        while len(games) <= 700:
             WebDriverWait(driver, 5).until(EC.visibility_of_element_located((By.CSS_SELECTOR, 'div.post-details')))
             contents = driver.find_element(By.XPATH,
                                            "/html/body/div/div/div[2]/div/div/div/div/div[1]/div/div[1]").find_elements(
@@ -81,12 +79,6 @@ def crawl():
                         print(req)  # 系統需求
                         game["hardware_need"] = req
                         break
-                game_from_db = Game.objects.filter(name=game["game_name"], url_address=game["web_address"])
-                if game_from_db.exists():
-                    driver.quit()
-                    done=True
-                    print("沒有新遊戲")
-                    return games, done
                 games.append(game)
                 print()
                 driver.back()
@@ -103,11 +95,9 @@ def crawl():
 
 def OceanOfGames():
     games, done = crawl()
-    print(len(games), done)
     while not games:
         if not done:
             crawl()
-            print(done)
         else:
             return games
     return games

@@ -28,10 +28,8 @@ services:
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
       - SE_NODE_SESSION_TIMEOUT = 86400
       - SE_VNC_NO_PASSWORD=1
-      - SE_NODE_MAX_SESSIONS=5 
-      - SE_VNC_VIEW_ONLY=1   	
-
-
+      - SE_NODE_MAX_SESSIONS=5
+      - SE_VNC_VIEW_ONLY=1
   firefox:
     image: selenium/node-firefox:4.7.2-20221219
     shm_size: 2gb
@@ -68,7 +66,8 @@ services:
       - "6379:6379"
     restart: always 
   db:
-    image: mysql
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
     env_file:  
       - ./GamePlatform/.env 
     networks:  
@@ -87,7 +86,7 @@ services:
       - "8000"
     volumes:
       - ./GamePlatform:/var/www/html/GamePlatform 
-      - ./GamePlatform/staticfiles:/www/html/GamePlatform/static 
+      - ./GamePlatform/staticfiles:/www/html/GamePlatform/staticfiles
       - ./GamePlatform/media:/www/html/GamePlatform/media 
       - ./compose/uwsgi:/tmp 
     networks:

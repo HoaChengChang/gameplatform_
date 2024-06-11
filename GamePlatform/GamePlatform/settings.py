@@ -13,10 +13,12 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
+from celery.schedules import crontab
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+#皓程
+#為了防止帳密外洩，使用load_dotenv套件
 load_dotenv()
 DB_PASSWORD = os.getenv("MYSQL_PASSWORD")
 DB_USER = os.getenv("MYSQL_USER")
@@ -51,11 +53,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "gameApp",
     "sslserver",
-    'celery',
-    'djoser',
-    'rest_framework',
-    'django_celery_beat',
-    'rest_framework_simplejwt',
+    "celery",
+    "djoser",
+    "rest_framework",
+    "django_celery_results",
+    "django_celery_beat",
 ]
 
 MIDDLEWARE = [
@@ -70,14 +72,14 @@ MIDDLEWARE = [
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',#沒用到
     ],
     'DEFAULT_PERMISSION_CLASSES':[
         'rest_framework.permissions.IsAuthenticated',
         # 'rest_framework.permissions.AllowAny',
     ]
 }
-
+#沒用到
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
@@ -135,24 +137,23 @@ WSGI_APPLICATION = "GamePlatform.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 AUTH_USER_MODEL = 'gameApp.User'
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         # 'ENGINE': 'mysql.connector.django',
-#         'NAME': DB_DATABASE,
-#         'USER': DB_USER,
-#         'PASSWORD':DB_PASSWORD,
-#         'HOST':DB_HOST,
-#         'PORT':'3306',
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DB_DATABASE,
+        'USER': DB_USER,
+        'PASSWORD':DB_PASSWORD,
+        'HOST':DB_HOST,
+        'PORT':'3306',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
 
 
@@ -187,40 +188,40 @@ USE_I18N = True
 USE_TZ = True
 
 
-# CELERY_BROKER_URL = "redis://redis:6379/0"
-# CELERY_TIMEZONE = TIME_ZONE
-# CELERY_RESULT_BACKEND = "django-db"
-# # celery内容等消息的格式设置，默认json
-# CELERY_ACCEPT_CONTENT = ['application/json', ]
-# CELERY_TASK_SERIALIZER = 'json'
-# CELERY_RESULT_SERIALIZER = 'json'
+CELERY_BROKER_URL = "redis://:password@redis:6379/0" #因為用docker部署的關係，寫法才會這樣
+CELERY_TIMEZONE = TIME_ZONE
+CELERY_RESULT_BACKEND = "django-db"
+# celery内容等消息的格式设置，默认json
+CELERY_ACCEPT_CONTENT = ['application/json', ]
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
 
-# # 为任务设置超时时间，单位秒。超时即中止，执行下个任务。
-# CELERY_TASK_TIME_LIMIT = 5
+# 为任务设置超时时间，单位秒。超时即中止，执行下个任务。
+CELERY_TASK_TIME_LIMIT = 5
 
-# # 为存储结果设置过期日期，默认1天过期。如果beat开启，Celery每天会自动清除。
-# # 设为0，存储结果永不过期
-# CELERY_RESULT_EXPIRES = 1
+# 为存储结果设置过期日期，默认1天过期。如果beat开启，Celery每天会自动清除。
+# 设为0，存储结果永不过期
+CELERY_RESULT_EXPIRES = 1
 
-# # 任务限流
-# CELERY_TASK_ANNOTATIONS = {'tasks.add': {'rate_limit': '10/s'}}
+# 任务限流
+CELERY_TASK_ANNOTATIONS = {'tasks.work_chain': {'rate_limit': '10/s'}}
 
-# # Worker并发数量，一般默认CPU核数，可以不设置
-# CELERY_WORKER_CONCURRENCY = 2
+# Worker并发数量，一般默认CPU核数，可以不设置
+CELERY_WORKER_CONCURRENCY = 2
 
-# # 每个worker执行了多少任务就会死掉，默认是无限的
-# CELERY_WORKER_MAX_TASKS_PER_CHILD = 200
+# 每个worker执行了多少任务就会死掉，默认是无限的
+CELERY_WORKER_MAX_TASKS_PER_CHILD = 200
 
-# CELERY_BEAT_SCHEDULE = {
-#     'add-every-monday-morning': {
-#         'task': 'gameApp.tasks.work_chain',
-#         'schedule': crontab(0, 0, day_of_month='1'),
-#         'args': (7, 8),
-#     },
-# }
+CELERY_BEAT_SCHEDULE = {
+    'start-every-week-morning': {
+        'task': 'gameApp.tasks.work_chain',
+        'schedule': crontab(0, 0, day_of_week='1'),
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
+
 
 STATIC_URL = "static/"
 STATICFILES_DIRS=[
@@ -236,18 +237,18 @@ MEDIE_URL='/media/'
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisçCache",
-#         "LOCATION": "redis://redis:6379/1", 
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#             "PASSWORD": "password",
-#         },
-#     }
-# }
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://redis:6379/1",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": "password",
+        },
+    }
+}
 
-# Email相關
+# Email相關 崇皓
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
