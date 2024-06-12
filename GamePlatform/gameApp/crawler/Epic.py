@@ -32,6 +32,7 @@ def crawl_epicgames(total):
             chrome_browser.get(url)
             soup = BeautifulSoup(chrome_browser.page_source, "html.parser")
             inUrls = soup.select("a.css-g3jcms")
+            chrome_browser.quit()
             for inUrl in inUrls:
                 try:
                     gameDict = {"game_name":"","introduction":"","hardware_need":"","platform":[],"type":[],"release_date":"",
@@ -90,14 +91,6 @@ def crawl_epicgames(total):
                 except:
                     chrome_browser2.quit()                  
             start += 40
-            chrome_browser.quit()
-        except:
+        finally:
             start += 40
             chrome_browser.quit()
-        
-    
-
-
-
-
-
