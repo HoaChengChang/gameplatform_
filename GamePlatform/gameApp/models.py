@@ -8,8 +8,6 @@ from gameApp.customize import icon_rename
 資料庫設計：皓程
 
 '''
-
-
 class User(AbstractUser):
     SEX_CHOICES = [
         [0, '男'],
