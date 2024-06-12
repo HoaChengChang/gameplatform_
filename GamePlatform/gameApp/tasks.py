@@ -90,7 +90,7 @@ def oceanofGames(lock):
 
 
 def SteamGames(lock):
-    from .crawler.miyuuuu_Crawl.steam_main import Crawl_Steam
+    from .crawler.miyuuuu_Crawl.steam_main import Steam_Crawl_main
 
     steam_cate = ['action', 'arcade_rhythm', 'shmup', 'action_fps', 'action_tps',
                   'adventure', 'casual', 'adventure_rpg', 'story_rich',
@@ -109,7 +109,7 @@ def SteamGames(lock):
 #   ec = <int>  Error chance count. （no debug）
 
     for i in steam_cate:
-        results = Crawl_Steam(i, 60)
+        results = Steam_Crawl_main(i, 60)
         save_to_database(lock,results)
 
 

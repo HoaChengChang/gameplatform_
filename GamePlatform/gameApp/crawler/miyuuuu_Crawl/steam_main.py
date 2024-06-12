@@ -75,6 +75,12 @@ def Crawl_Steam(categoryurl, MBcount, ec=0):
     driver.get(mainurl+categoryurl)
     wait(2.6)
 
+# Page language switch to Chinese
+    driver.find_element(By.ID, 'language_pulldown').click()
+    wait(1)
+    driver.find_element(By.XPATH, '//*[@id="language_dropdown"]/div/a[2]').click()
+    wait(6)
+
 # scroll
     driver.execute_script("var q=document.documentElement.scrollTop=3530")
     wait(3)
@@ -131,37 +137,25 @@ def Crawl_Steam(categoryurl, MBcount, ec=0):
         GameLinks.append(url)
     # driver.close()
     driver.quit()
-
-    '''
-{"game_name":
-    {
-        "introduction":value,
-        "hardware_need":value,
-        "platform":[value],
-        "type":[value],
-        "display_time":value,
-        "pay":True or False,
-        "picture_path":value,
-        "web_address":value,
-        "classification":0 or 1,
-    }
-}
-'''
+    return GameLinks
 
 # output
-    
+def Steam_Crawl_main(categoryurl, MBcount, ec=0):
     SteamGames = []
-    for gamelink in GameLinks:
-        
+    for gamelink in Crawl_Steam(categoryurl, MBcount, ec):
         try:
             result = gamedata(gamelink)
-            if  result != None:
+            if result != None:
                 SteamGames.append(result)
+            else:
+                print(f'error {gamelink}')
             wait(0.3)
         except:
+            print(f'error {gamelink}')
             wait(0.3)
         if len(SteamGames) > 200:
             return SteamGames
+    return SteamGames
 
 # test
 if __name__ == "__main__":
