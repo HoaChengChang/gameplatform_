@@ -89,8 +89,7 @@ def crawl_epicgames(total):
                     if len(gameList) == total:
                         return gameList
                 except:
-                    chrome_browser2.quit()                  
-            start += 40
+                    chrome_browser2.quit()
         finally:
             start += 40
             chrome_browser.quit()
