@@ -182,7 +182,6 @@ class GameDetail(View): #皓程
         comments = Comment.objects.filter(game = game).order_by('-dt')
         recommand = Game.objects.filter(game_type = game_type[0]).order_by('?')[:12]
         
-
         if comments.exists():
             star_total = [comment.star_count for comment in comments]
             star_avg = sum(star_total) / len(star_total)
