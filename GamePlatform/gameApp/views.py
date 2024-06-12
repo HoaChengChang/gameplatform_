@@ -134,7 +134,7 @@ class Index(View):#宗錡
         if request.user.is_authenticated:
             check = 1
             user = request.user.username,
-        games=Game.objects.order_by('?')[:6]
+        games=Game.objects.order_by('star_count', '?')[:6]
         game_types = get_redis_cache("all_type_objs", "all_type_objs")
         Gid=[game.id for game in games]
         Gname=[game.name for game in games]
