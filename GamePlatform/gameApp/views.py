@@ -248,7 +248,7 @@ class CommentSite(View):#皓程
                     "latest_games" : latest_games,
                     "comments" : [],
                 }
-            return render(request, 'commentlist.html', context)
+                return render(request, 'commentlist.html', context)
         else:
             return render(request, 'comments.html', context)
 
